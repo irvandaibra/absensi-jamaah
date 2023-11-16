@@ -30,30 +30,29 @@ class data_jamaah extends CI_Controller {
 		echo $this->Main_model->get_tables($tables,$search,$isWhere);
     }
 
-	public function tambah()
+    public function tambah()
 	{
 		$data['page'] = 'Tambah';
-        // $this->form_validation->set_rules('status', 'Toko', 'trim|required');
-        $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required');
+        // $this->form_validation->set_rules('code_unik', 'Code Unik', 'trim|required');
+		$this->form_validation->set_rules('nama_lengkap', 'Nama jamaah', 'trim|required');
         $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'trim|required');
         $this->form_validation->set_rules('tmpt_lahir', 'Tempat Lahir', 'trim|required');
-        $this->form_validation->set_rules('umur', 'umur', 'trim|required');
-        // $this->form_validation->set_rules('kategori', 'kategori', 'trim|required');
-        // $this->form_validation->set_rules('status', 'status', 'trim|required');
+        // $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
+        // $this->form_validation->set_rules('status', 'Status', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
-            // $data['toko'] = $this->Main_model->get('toko')->result();
-            // $data['akses_karyawan'] = $this->Main_model->get('karyawan_akses')->result();
             $data['nama_lengkap'] = array(
                 'name'  => 'nama_lengkap',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('nama_lengkap'),
             );
+
             $data['tmpt_lahir'] = array(
                 'name'  => 'tmpt_lahir',
-                'type'  => 'tmpt_lahir',
+                'type'  => 'text',
                 'value' => $this->form_validation->set_value('tmpt_lahir'),
             );
+
             $data['tgl_lahir'] = array(
                 'name'  => 'tgl_lahir',
                 'type'  => 'date',
@@ -64,25 +63,30 @@ class data_jamaah extends CI_Controller {
                 'type'  => 'number',
                 'value' => $this->form_validation->set_value('umur'),
             );
+
             $data['code_unik'] = array(
                 'name'  => 'code_unik',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('code_unik'),
             );
+
             $data['kategori'] = array(
                 'name'  => 'kategori',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('kategori'),
             );
+            
             $data['status'] = array(
                 'name'  => 'status',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('status'),
             );
+           
 			$this->load->view('data_jamaah/form', $data);
 
         } else {
             $nama_lengkap = $this->input->post('nama_lengkap', true);
+            $tgl_lahir = $this->input->post('tgl_lahir', true);
             $tmpt_lahir = $this->input->post('tmpt_lahir', true);
             $tgl_lahir = $this->input->post('tgl_lahir', true);
             
@@ -90,22 +94,22 @@ class data_jamaah extends CI_Controller {
             $sekarang = new DateTime();
 
             $tgl_lahir_formatted = date('Ymd', strtotime($tgl_lahir));
-
             $kode_unik = $tgl_lahir_formatted . '-' . substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'), 0, 4);
 
             $umur = $sekarang->diff($tanggal_lahir)->y;
-            $status = $this->input->post('status', true);
             $kategori = $this->input->post('kategori', true);
-            // $deskripsi = $this->input->post('deskripsi', true);
+            $status = $this->input->post('status', true);
+            
             $data = [
+                'code_unik' => $kode_unik,
                 'nama_lengkap' => $nama_lengkap,
                 'tmpt_lahir' => $tmpt_lahir,
                 'tgl_lahir' => $tgl_lahir,
                 'umur' => $umur,
-                'status' => $status,
                 'kategori' => $kategori,
-                'code_unik' => $kode_unik,
+                'status' => $status,
             ];
+
 			if ($this->Main_model->insert_data($data, 'data_jamaah')) {
 				redirect('data_jamaah', 'refresh');
 			} else {
@@ -113,7 +117,7 @@ class data_jamaah extends CI_Controller {
 			}
         }
 	}
-
+	
     public function ubah($id)
 	{
 		$data['page'] = 'Ubah';
@@ -175,13 +179,13 @@ class data_jamaah extends CI_Controller {
                 $kategori = $this->input->post('kategori', true);
 
                 $data = [
+                    'code_unik' => $kode_unik,
                     'nama_lengkap' => $nama_lengkap,
                     'tmpt_lahir' => $tmpt_lahir,
                     'tgl_lahir' => $tgl_lahir,
                     'umur' => $umur,
                     'status' => $status,
                     'kategori' => $kategori,
-                    'code_unik' => $kode_unik,
                 ];
 
 				$where = array('id' => $row['id']);

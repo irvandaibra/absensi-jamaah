@@ -64,9 +64,13 @@
                     <hr>
                     <div class="row">
                     <?php if($page === 'Ubah') { ?>
+                        <div class="col-md-12 mt-n2 mb-3">
+                        <label for="nama" class="form-label">Kode Unik</label>
+
                         <?php echo form_input($code_unik, $code_unik['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Lengkap" required') ?>
-                    <?php } else { ?>
-                    <?php } ?>
+                    </div>
+                        <?php } else { ?>
+                    <?php } ?> 
                         <div class="col-md-12 mt-n2 mb-3">
                         </div>
                         <div class="col-md-12 mt-n2 mb-3">
@@ -77,22 +81,22 @@
                             <label for="tmpt_lahir" class="form-label">Tempat Lahir</label>
                             <?php echo form_input($tmpt_lahir, $tmpt_lahir['value'], 'class="form-control" id="tmpt_lahir" autocomplete="off" placeholder="Tempat Lahir" required') ?>
                         </div>
-                        <div class="col-md-6 mt-n2 mb-3">
+                         <div class="col-md-6 mt-n2 mb-3">
                             <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
                             <?php echo form_input($tgl_lahir, $tgl_lahir['value'], 'class="form-control" id="tgl_lahir" autocomplete="off" placeholder="Tanggal Lahir" required') ?>
                         </div>
                         <div class="col-md-12 mt-n2 mb-3">
-                            <label for="nama" class="form-label">Kategori Usia</label>
+                            <label for="" class="form-label">Kategori Usia</label>
                             <?php
-                                    $options = array(
-                    'lansia' => 'Lansia',
-                    'umum' => 'Umum',
-                    'remaja' => 'Remaja'
-                    );
-                echo form_dropdown('kategori', $options, set_value('kategori', $kategori), 'class="form-control select2" id="kategori"');
-                    ?>
+                                $options = array(
+                                'lansia' => 'Lansia',
+                                'umum' => 'Umum',
+                                'remaja' => 'Remaja'
+                                );
+                                echo form_dropdown('kategori', $options, set_value('kategori', $kategori), 'class="form-control select2" id="kategori"');
+                                ?>
                         </div>
-                        <div class="col-md-12 mt-n2 mb-3">
+                       <div class="col-md-12 mt-n2 mb-3">
                             <label for="status" class="form-label">Status</label>
                             <?php
                                     $options = array(
