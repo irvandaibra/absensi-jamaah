@@ -17,6 +17,9 @@ class auth extends CI_Controller {
 			if ($this->session->userdata('role') === 'Admin') {
 				redirect(base_url('dashboard'));
 			}
+			if ($this->session->userdata('role') === 'Pengabsen') {
+				redirect(base_url('dashboard'));
+			}
 		}
 		$this->data['username'] = array(
 			'name'	=> 'username',
