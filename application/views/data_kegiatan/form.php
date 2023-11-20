@@ -74,8 +74,12 @@
                     </div>
                     <?php if($page === 'Ubah') { ?>
                     <button class="btn btn-danger float-start" type="button"
-                        onClick="location.href='<?php echo base_url('akses_karyawan/hapus/'.$row['id'])?>'">
-                        Hapus
+                        onClick="location.href='<?php echo base_url('daftar_kegiatan/nonaktif/'.$row['id'])?>'">
+                        Nonaktifkan
+                    </button>
+                    <button class="btn btn-info float-start" type="button"
+                        onClick="location.href='<?php echo base_url('daftar_kegiatan/aktif/'.$row['id'])?>'">
+                        Aktifkan
                     </button>
                     <?php } else { ?>
                     <?php } ?>

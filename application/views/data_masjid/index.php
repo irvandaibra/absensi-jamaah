@@ -52,10 +52,10 @@
                         <div class="border-bottom title-part-padding">
                         <div class="d-flex justify-content-between">
                                 <div>
-                                    <h2 class="card-title mb-0">Daftar Kegiatan</h4>
+                                    <h2 class="card-title mb-0">Data Masjid</h4>
                                 </div>
                                 <div>
-                                     <a href="<?php echo base_url('daftar_kegiatan/tambah')?>" class="btn btn-primary w-100">
+                                     <a href="<?php echo base_url('data_masjid/tambah')?>" class="btn btn-primary w-100">
                                         Tambah Data
                                     </a>
                                 </div>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-subtitle">
-                               Dalam page ini Akan menampilkan data-data Kegiatan Di Kelompok ini
+                               Dalam page ini Akan menampilkan data masjid
                             </h5>
                         </div>
                     </div>
@@ -73,8 +73,10 @@
                             <table class="table table-hover table-white w-100 ">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th class="">Nama Kegiatan</th>
+                                        <th class="">Nama Masjid</th>
+                                        <th class="">Alamat Masjid</th>
+                                        <th class="">Kyai Kelompok</th>
+                                        <th class="">Penrobos</th>
                                         <th class="">Status</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -102,7 +104,7 @@ $(document).ready(function() {
             [0, 'asc']
         ],
         ajax: {
-            "url": "<?= base_url('daftar_kegiatan/get_data');?>",
+            "url": "<?= base_url('data_masjid/get_data');?>",
             "type": "POST"
         },
         deferRender: true,
@@ -112,18 +114,24 @@ $(document).ready(function() {
         ],
         columns: [
             {
-                data: "id",
+                data: "nama_masjid",
             },
             {
-                data: "nama_kegiatan",
+                data: "alamat_masjid",
             },
             {
-                data: "status_kegiatan",
+                data: "kyai_kelompok",
+            },
+            {
+                data: "penrobos",
+            },
+            {
+                data: "status",
             },
             {
                 data: "id",
                 "render": function(data, type, row, meta) {
-                    return '<a href="<?php echo base_url('daftar_kegiatan/ubah/')?>' + data +
+                    return '<a href="<?php echo base_url('data_masjid/ubah/')?>' + data +
                         '" class="btn btn-sm btn-primary">Ubah</a>';
                 }
             },

@@ -117,7 +117,19 @@ class data_jamaah extends CI_Controller {
 			}
         }
 	}
-	
+	public function get_id($id)
+    {
+        $data['page'] = 'Detail';
+		$where = ['id' => $id];
+		$row   = $this->Main_model->getwhere('data_jamaah', $where)->row_array();
+
+        $data['where'] = $where;
+        $data['row'] = $row;
+
+        $this->load->view('data_jamaah/detail_data', $data);
+
+
+    }
     public function ubah($id)
 	{
 		$data['page'] = 'Ubah';
@@ -200,10 +212,19 @@ class data_jamaah extends CI_Controller {
 		}
 	}
 
-    public function hapus($id)
+    public function nonaktif($id)
     {
         $where = array('id' => $id);
         $data = ['status_data' => date('0')];
+		if ($this->Main_model->update_data($where, $data, 'data_jamaah')) {
+			redirect('data_jamaah', 'refresh');
+		}
+    }
+
+    public function aktif($id)
+    {
+        $where = array('id' => $id);
+        $data = ['status_data' => date('1')];
 		if ($this->Main_model->update_data($where, $data, 'data_jamaah')) {
 			redirect('data_jamaah', 'refresh');
 		}

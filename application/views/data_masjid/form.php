@@ -45,12 +45,12 @@
         <div id="main-wrapper">
             <?php $this->load->view('style/navbar') ?>
             <?php $this->load->view('style/sidebar') ?>
-            <?php echo form_open_multipart('data_jamaah/'.$this->uri->segment(2).$this->uri->segment(2) == 'ubah' && '/'.$this->uri->segment(3), 'class="mt-5 pt-5 pb-5 px-5"') ?>
+            <?php echo form_open_multipart('data_masjid/'.$this->uri->segment(2).$this->uri->segment(2) == 'ubah' && '/'.$this->uri->segment(3), 'class="mt-5 pt-5 pb-5 px-5"') ?>
             <div class="page-wrapper shadow-lg p-3 mb-5 rounded" style="height: auto; background-color: white;">
                 <div class="page-breadcrumb">
                     <div class="row">
                         <div class="col-6 align-self-center">
-                            <h2 class="page-title"><?php echo $page?> Data Jamaah</h2>
+                            <h2 class="page-title"><?php echo $page?> Data Masjid</h2>
                         </div>
                     </div>
                     <?php if($page === 'Tambah') { ?>
@@ -63,58 +63,18 @@
                     </div>
                     <hr>
                     <div class="row">
-                    <?php if($page === 'Ubah') { ?>
                         <div class="col-md-12 mt-n2 mb-3">
-                        <label for="nama" class="form-label">Kode Unik</label>
-
-                        <?php echo form_input($code_unik, $code_unik['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Lengkap" required') ?>
-                    </div>
-                        <?php } else { ?>
-                    <?php } ?> 
-                        <div class="col-md-12 mt-n2 mb-3">
-                        </div>
-                        <div class="col-md-12 mt-n2 mb-3">
-                            <label for="nama" class="form-label">Nama Lengkap</label>
-                            <?php echo form_input($nama_lengkap, $nama_lengkap['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Lengkap" required') ?>
-                        </div>
-                        <div class="col-md-6 mt-n2 mb-3">
-                            <label for="tmpt_lahir" class="form-label">Tempat Lahir</label>
-                            <?php echo form_input($tmpt_lahir, $tmpt_lahir['value'], 'class="form-control" id="tmpt_lahir" autocomplete="off" placeholder="Tempat Lahir" required') ?>
-                        </div>
-                         <div class="col-md-6 mt-n2 mb-3">
-                            <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
-                            <?php echo form_input($tgl_lahir, $tgl_lahir['value'], 'class="form-control" id="tgl_lahir" autocomplete="off" placeholder="Tanggal Lahir" required') ?>
-                        </div>
-                        <div class="col-md-12 mt-n2 mb-3">
-                            <label for="" class="form-label">Kategori Usia</label>
-                            <?php
-                                $options = array(
-                                'lansia' => 'Lansia',
-                                'umum' => 'Umum',
-                                'remaja' => 'Remaja'
-                                );
-                                echo form_dropdown('kategori', $options, set_value('kategori', $kategori), 'class="form-control select2" id="kategori"');
-                                ?>
-                        </div>
-                       <div class="col-md-12 mt-n2 mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <?php
-                                    $options = array(
-                    'pendatang' => 'Pendatang',
-                    'pribumi' => 'Pribumi',
-                    );
-                echo form_dropdown('status', $options, set_value('status', $status), 'class="form-control select2" id="status"');
-                    ?>
-
+                            <label for="nama" class="form-label">Nama Masjid</label>
+                            <?php echo form_input($nama_masjid, $nama_masjid['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Masjid" required') ?>
                         </div>
                     </div>
                     <?php if($page === 'Ubah') { ?>
                         <button class="btn btn-danger float-start" type="button"
-                        onClick="location.href='<?php echo base_url('data_jamaah/nonaktif/'.$row['id'])?>'">
+                        onClick="location.href='<?php echo base_url('data_masjid/nonaktif/'.$row['id'])?>'">
                         Nonaktifkan
                     </button>
                     <button class="btn btn-info float-start" type="button"
-                        onClick="location.href='<?php echo base_url('data_jamaah/aktif/'.$row['id'])?>'">
+                        onClick="location.href='<?php echo base_url('data_masjid/aktif/'.$row['id'])?>'">
                         Aktifkan
                     </button>
                     <?php } else { ?>
