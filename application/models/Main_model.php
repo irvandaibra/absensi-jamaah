@@ -29,6 +29,10 @@
             return $this->db->get_where($table, $data);
         }
 
+        public function getwhere2($table, $where) {
+            return $this->db->get_where($table, $where);
+        }
+
         public function get_toko()
         {
             $data = [

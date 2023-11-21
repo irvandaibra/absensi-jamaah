@@ -22,7 +22,7 @@
                 <div class="card-body">
                   <center class="mt-4">
                     <img src="../../assets/images/users/5.jpg" class="rounded-circle" width="150" />
-                    <h4 class="card-title mt-2">Hanna Gover</h4>
+                    <h4 class="card-title mt-2"><?php echo $row["nama_lengkap"]; ?></h4>
                     <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
                     <div class="row text-center justify-content-md-center">
                       <div class="col-4">

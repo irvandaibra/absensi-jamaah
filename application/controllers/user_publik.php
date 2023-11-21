@@ -13,7 +13,7 @@ class user_publik extends CI_Controller {
 
 	public function index()
 	{
-    $this->load->view('landingpage/user_publik');
+    // $this->load->view('landingpage/user_publik');
     }
 
 	

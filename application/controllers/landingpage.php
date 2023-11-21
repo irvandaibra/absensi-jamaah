@@ -15,9 +15,31 @@ class landingpage extends CI_Controller {
 	{
         $this->load->view('landingpage/index');
     }
+    public function user_index($code_unik = null)
+    {
+        if ($code_unik === null) {
+            $code_unik = $this->uri->segment(4);
+        }
+        // Mengambil nilai code_unik dari formulir
+        $code_unik = $this->input->get('code_unik');
 
-	public function user_index()
-	{
-		$this->load->view('landingpage/user_publik');
-	}
+        // Melakukan validasi jika diperlukan
+        if (!empty($code_unik)) {
+            $where = ['code_unik' => $code_unik];
+            $row   = $this->Main_model->getwhere2('data_jamaah', $where)->row_array();
+            if (!empty($row)) {
+                $data['where'] = $where;
+                $data['row'] = $row;
+    
+                $this->load->view('landingpage/user_publik', $data);
+            } else {
+                // Menangani kasus jika data tidak ditemukan
+                show_404(); // Fungsi ini akan menampilkan halaman error 404
+            }
+        } else {
+            // Handle jika code_unik tidak tersedia atau tidak valid
+            echo "Code Unik tidak valid";
+        }
+    }
+
 }

@@ -34,7 +34,8 @@
                         class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('auth')?>">Login Admin</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('auth')?>">Login Admin</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -60,24 +61,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start mb-3">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control form-control-lg border border-success"
-                                        placeholder="Username" />
-                                    <label><i data-feather="user"
-                                            class="feather-sm text-success fill-white me-2"></i><span
-                                            class="border-start border-success ps-3">Masukan Kode Unik</span></label>
-                                </div>
-                                <button type="submit" class="btn btn-info font-medium rounded-pill px-4">
-                                    <div class="d-flex align-items-center">
-                                        <i data-feather="send" class="feather-sm fill-white me-2"></i>
-                                        <a href="<?php echo base_url('user_publik')?>">Cari</a>
+                            <form method="get" action="<?= base_url('landingpage/user_index'); ?>">
+                                <div
+                                    class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start mb-3">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" name="code_unik"
+                                            class="form-control form-control-lg border border-success"
+                                            placeholder="Username" />
+                                        <label><i data-feather="user"
+                                                class="feather-sm text-success fill-white me-2"></i><span
+                                                class="border-start border-success ps-3">Masukan Kode
+                                                Unik</span></label>
                                     </div>
+                                    <button type="submit" class="btn btn-info font-medium rounded-pill px-4">
+                                        Cari
+                                </div>
                                 </button>
-                            </div>
                         </div>
+                        </form>
                     </div>
                 </div>
+            </div>
             </div>
         </header>
         <!-- About Section-->
