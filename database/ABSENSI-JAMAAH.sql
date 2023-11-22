@@ -16,6 +16,25 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`data_absensi` /*!40100 DEFAULT CHARACTE
 
 USE `data_absensi`;
 
+/*Table structure for table `absensi` */
+
+DROP TABLE IF EXISTS `absensi`;
+
+CREATE TABLE `absensi` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `jamaah_id` bigint(11) NOT NULL,
+  `kegiatan_id` bigint(11) DEFAULT NULL,
+  `kehadiran` enum('Hadir','Izin','Alpha') NOT NULL,
+  `nama_pengurus` varchar(255) DEFAULT NULL,
+  `penerobos` varchar(255) DEFAULT NULL,
+  `dibuat_oleh` bigint(11) NOT NULL,
+  `dibuat_pada` timestamp NOT NULL DEFAULT current_timestamp(),
+  `diubah_pada` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `absensi` */
+
 /*Table structure for table `akun` */
 
 DROP TABLE IF EXISTS `akun`;
@@ -51,6 +70,7 @@ DROP TABLE IF EXISTS `daftar_kegiatan`;
 CREATE TABLE `daftar_kegiatan` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `nama_kegiatan` varchar(255) NOT NULL,
+  `dibuat_oleh` int(11) NOT NULL,
   `dibuat_pada` timestamp NOT NULL DEFAULT current_timestamp(),
   `diubah_pada` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status_kegiatan` tinyint(1) DEFAULT 1,
@@ -59,11 +79,11 @@ CREATE TABLE `daftar_kegiatan` (
 
 /*Data for the table `daftar_kegiatan` */
 
-insert  into `daftar_kegiatan`(`id`,`nama_kegiatan`,`dibuat_pada`,`diubah_pada`,`status_kegiatan`) values 
-(1,'Sambung Kelompok','2023-11-03 23:17:30','2023-11-05 23:17:56',1),
-(2,'Sambung Sub','2023-11-03 23:18:40','2023-11-05 23:21:35',1),
-(3,'Sambung Pagi','2023-11-13 00:57:15','2023-11-22 08:15:40',1),
-(4,'Susulan Text Amanatan','2023-11-16 15:43:31','2023-11-20 23:13:22',0);
+insert  into `daftar_kegiatan`(`id`,`nama_kegiatan`,`dibuat_oleh`,`dibuat_pada`,`diubah_pada`,`status_kegiatan`) values 
+(1,'Sambung Kelompok',0,'2023-11-03 23:17:30','2023-11-05 23:17:56',1),
+(2,'Sambung Sub',0,'2023-11-03 23:18:40','2023-11-05 23:21:35',1),
+(3,'Sambung Pagi',0,'2023-11-13 00:57:15','2023-11-22 08:15:40',1),
+(4,'Susulan Text Amanatan',0,'2023-11-16 15:43:31','2023-11-20 23:13:22',0);
 
 /*Table structure for table `data_jamaah` */
 
