@@ -25,9 +25,9 @@ CREATE TABLE `absensi` (
   `jamaah_id` bigint(11) NOT NULL,
   `kegiatan_id` bigint(11) DEFAULT NULL,
   `kehadiran` enum('Hadir','Izin','Alpha') NOT NULL,
-  `nama_pengurus` varchar(255) DEFAULT NULL,
+  `keterangan` text DEFAULT NULL,
   `penerobos` varchar(255) DEFAULT NULL,
-  `tanggal_kegiatan` timestamp NOT NULL DEFAULT current_timestamp(),
+  `tanggal_kegiatan` date NOT NULL,
   `dibuat_oleh` bigint(11) NOT NULL,
   `dibuat_pada` timestamp NOT NULL DEFAULT current_timestamp(),
   `diubah_pada` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -94,6 +94,7 @@ CREATE TABLE `data_jamaah` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `code_unik` varchar(255) DEFAULT NULL,
   `nama_lengkap` varchar(255) NOT NULL,
+  `kelamin` varchar(15) DEFAULT NULL,
   `tgl_lahir` date NOT NULL,
   `tmpt_lahir` varchar(255) NOT NULL,
   `alamat` varchar(255) NOT NULL,
@@ -109,11 +110,11 @@ CREATE TABLE `data_jamaah` (
 
 /*Data for the table `data_jamaah` */
 
-insert  into `data_jamaah`(`id`,`code_unik`,`nama_lengkap`,`tgl_lahir`,`tmpt_lahir`,`alamat`,`no_telepon`,`kategori`,`status`,`dibuat_oleh`,`dibuat_pada`,`diubah_pada`,`status_data`) values 
-(1,'0','halo dek','1994-06-01','kaka','',62,'lansia','pendatang',0,'2023-11-16 16:20:49','2023-11-19 22:45:13',1),
-(2,NULL,'farid','2008-02-16','Demak','',62,'umum','pribumi',0,'2023-11-16 16:23:01','2023-11-16 16:24:57',1),
-(3,'20080218-ALYY','Alfy','2008-02-18','Kalimantan','',62,'umum','pendatang',0,'2023-11-16 16:24:40','2023-11-16 16:27:38',1),
-(4,'20050503-BF6Z','Irvanda','2005-05-03','Semarang','',62,'remaja','pribumi',0,'2023-11-16 16:30:16','2023-11-20 23:23:30',0);
+insert  into `data_jamaah`(`id`,`code_unik`,`nama_lengkap`,`kelamin`,`tgl_lahir`,`tmpt_lahir`,`alamat`,`no_telepon`,`kategori`,`status`,`dibuat_oleh`,`dibuat_pada`,`diubah_pada`,`status_data`) values 
+(1,'92929928-SAID','Said',NULL,'1994-06-01','kaka','',62,'lansia','pendatang',2147483647,'2023-11-16 16:20:49','2023-11-23 21:34:36',1),
+(2,'29938499-YUAR','yuar',NULL,'2008-02-16','Demak','',62,'umum','pribumi',2147483647,'2023-11-16 16:23:01','2023-11-23 21:34:40',1),
+(3,'20080218-ALYY','frixwith',NULL,'2008-02-18','Kalimantan','',62,'umum','pendatang',2147483647,'2023-11-16 16:24:40','2023-11-23 21:34:40',1),
+(4,'20050503-BF6Z','Irvanda',NULL,'2005-05-03','Semarang','',62,'remaja','pribumi',2147483647,'2023-11-16 16:30:16','2023-11-23 21:34:43',0);
 
 /*Table structure for table `data_masjid` */
 
@@ -135,7 +136,7 @@ CREATE TABLE `data_masjid` (
 /*Data for the table `data_masjid` */
 
 insert  into `data_masjid`(`id`,`nama_masjid`,`kyai_kelompok`,`penrobos`,`alamat_masjid`,`status`,`dibuat_oleh`,`dibuat_pada`,`diubah_pada`) values 
-(1,'Al-Manshurin','Slamet Riyadi','Triyono','Jl. Puncak Sari, Tambak Aji, Ngaliyan, Semarang',0,0,'2023-11-20 23:00:44','2023-11-20 23:21:45');
+(1,'Al-Manshurin','Slamet Riyadi','Triyono','Jl. Puncak Sari, Tambak Aji, Ngaliyan, Semarang',0,2147483647,'2023-11-20 23:00:44','2023-11-23 21:32:31');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
