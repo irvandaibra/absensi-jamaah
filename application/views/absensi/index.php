@@ -52,11 +52,11 @@
                         <div class="border-bottom title-part-padding">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h2 class="card-title mb-0">Daftar Jama'ah</h4>
+                                    <h2 class="card-title mb-0">Daftar Absens</h4>
                                 </div>
                                 <div>
-                                     <a href="<?php echo base_url('data_jamaah/tambah')?>" class="btn btn-primary w-100">
-                                        Tambah Data
+                                     <a href="<?php echo base_url('')?>" class="btn btn-primary w-100">
+                                        Import Absen
                                     </a>
                                 </div>
                                    
@@ -65,7 +65,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-subtitle">
-                                Dalam page ini Akan menampilkan data-data Jama'ah
+                                Dalam page ini Akan menampilkan data absensi
                             </h5>
                         </div>
                     </div>
@@ -74,9 +74,12 @@
                             <table class="table table-hover table-white w-100 ">
                                 <thead>
                                     <tr>
-                                        <th class="">Nama Lengkap</th>
-                                        <th class="">Kategori</th>
-                                        <th class="">Status</th>
+                                        <th class="">ID Absen</th>
+                                        <th class="">Tanggal Kegiatan</th>
+                                        <th class="">Nama Kegiatan</th>
+                                        <th class="">Jumlah Hadir</th>
+                                        <th class="">Jumlah Ijin</th>
+                                        <th class="">Jumlah Alpha</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -103,7 +106,7 @@ $(document).ready(function() {
             [0, 'asc']
         ],
         ajax: {
-            "url": "<?= base_url('data_jamaah/get_data');?>",
+            "url": "<?= base_url('absenss/get_data');?>",
             "type": "POST"
         },
         deferRender: true,
@@ -111,21 +114,29 @@ $(document).ready(function() {
             [5, 10, 50],
             [5, 10, 50]
         ],
-        columns: [{
-                data: "nama_lengkap",
-            },
-            
+        columns: [
             {
-                data: "kategori",
+                data: "id",
             },
             {
-                data: "status",
+                data: "tanggal_kegiatan",
             },
+            {
+                data: "kegiatan_id",
+            },
+            // {
+            //     data: 59,
+            // },
+            // {
+            //     data: 19,
+            // },
+            // {
+            //     data: 12,
+            // },
             {
                 data: "id",
                 "render": function(data, type, row, meta) {
-                    return '<a href="<?php echo base_url('data_jamaah/ubah/')?>' + data +
-                        '" class="btn btn-sm btn-primary">Ubah</a><a href="<?php echo base_url('data_jamaah/get_id/')?>' + data +
+                    return '<a href="<?php echo base_url('')?>' + data +
                         '" class="btn btn-sm btn-primary">Lihat Detail</a>';
                 }
             },

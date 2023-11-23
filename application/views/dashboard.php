@@ -55,229 +55,54 @@
                     <div class="row">
                         <div class="col-5 align-self-center">
                             <h2 class="page-title">Dashboard</h2>
-                            <!-- <div class="d-flex align-items-center">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                                    </ol>
-                                </nav>
-                            </div> -->
+                           
                         </div>
                     </div>
                 </div>
                 <div class="container-fluid">
-                    <h5 class="mb-n2">SALES SUMMARY</h5>
-                    <hr>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">GROSS SALES</p>
-                                        <h3 class="card-text fw-semibold">Rp. 7.568.750</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">NET SALES</p>
-                                        <h3 class="card-text fw-semibold">Rp. 7.565.050</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">GROSS PROFIT</p>
-                                        <h3 class="card-text fw-semibold">Rp. 1.657.316</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">TRANSACTIONS</p>
-                                        <h3 class="card-text fw-semibold">98</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">AVERAGE SALE PER TRANSACTION</p>
-                                        <h3 class="card-text fw-semibold">Rp. 102.230</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">GROSS MARGIN</p>
-                                        <h3 class="card-text fw-semibold">21.91%</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">GROSS MARGIN</p>
-                                        <div><?php $this->load->view('grafik/g1') ?></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">GROSS MARGIN</p>
-                                        <div>
-                                            <?php $this->load->view('grafik/g2') ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <h5 class="mb-n2 mt-4">ITEM SUMMARY</h5>
-                    <hr>
-                    <div class="container-fluid">
-                        <div class="card card-dashboard">
-                            <div class="card-body">
-                                <h6 class="card-title fw-normal">TOP ITEMS</h6>
-                                <div class="scroll-table">
-                                    <table class="table table-hover table-secondary ">
-                                        <thead>
-                                            <tr>
-                                                <th>Item</th>
-                                                <th class="text-center" class="text-center">Item Sold</th>
-                                                <th class="text-center">Gross Sales</th>
-                                                <th class="text-center">Net Sales</th>
-                                                <th class="text-center">Gross Profit</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="table-light">
-                                                <th>Ori Coklat Traveler Pack (TP)</th>
-                                                <td class="text-center">22</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                                <th>Ori Coklat Traveler Pack (TP)</th>
-                                                <td class="text-center">22</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                                <th>Ori Coklat Traveler Pack (TP)</th>
-                                                <td class="text-center">22</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                                <th>Ori Coklat Traveler Pack (TP)</th>
-                                                <td class="text-center">22</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                                <th>Ori Coklat Traveler Pack (TP)</th>
-                                                <td class="text-center">22</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                                <th>Ori Coklat Traveler Pack (TP)</th>
-                                                <td class="text-center">22</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                                <th>Ori Coklat Traveler Pack (TP)</th>
-                                                <td class="text-center">22</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                            </tr>
-                                            <tr class="table-light">
-                                                <th>Ori Coklat Traveler Pack (TP)</th>
-                                                <td class="text-center">22</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                                <td class="text-center">Rp. 1.657.316</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">GROSS MARGIN</p>
-                                        <div>
-                                            <?php $this->load->view('grafik/g3') ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">GROSS MARGIN</p>
-                                        <div>
-                                            <?php $this->load->view('grafik/g4') ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="card card-dashboard">
-                                    <div class="card-body">
-                                        <p class="card-title fw-normal">GROSS MARGIN</p>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                            <?php $this->load->view('grafik/g5') ?>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <?php $this->load->view('grafik/g6') ?>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <?php $this->load->view('grafik/g7') ?>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <?php $this->load->view('grafik/g8') ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div style="width:75%;">
+                    <canvas id="myChart"></canvas>
+                </div>
                 </div>
             </div>
         </div>
     </div>
     <?php $this->load->view('style/js') ?>
 </body>
+
 <script type="text/javascript">
-const formatRupiah = (money) => {
-    return new Intl.NumberFormat('id-ID', {
-        style: 'currency',
-        currency: 'IDR',
-        minimumFractionDigits: 0
-    }).format(money);
-}
+var ctx = document.getElementById('myChart').getContext('2d');
+
+var data = <?php echo json_encode($chart_data); ?>;
+
+var labels = [];
+var values = [];
+
+data.forEach(function(item) {
+    labels.push(item.label);
+    values.push(item.value);
+});
+
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Chart Data',
+            data: values,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 </script>
 
 </html>

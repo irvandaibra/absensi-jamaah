@@ -28,6 +28,9 @@ class landingpage extends CI_Controller {
             $where = ['code_unik' => $code_unik];
             $row   = $this->Main_model->getwhere2('data_jamaah', $where)->row_array();
             if (!empty($row)) {
+                $tanggal_lahir = $row["tgl_lahir"];
+                $tanggal_ditampilkan = date("d F Y", strtotime($tanggal_lahir));
+                $row["tgl_lahir_tampil"] = $tanggal_ditampilkan;
                 $data['where'] = $where;
                 $data['row'] = $row;
     

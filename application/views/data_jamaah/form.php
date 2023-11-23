@@ -73,9 +73,13 @@
                     <?php } ?> 
                         <div class="col-md-12 mt-n2 mb-3">
                         </div>
-                        <div class="col-md-12 mt-n2 mb-3">
+                        <div class="col-md-6 mt-n2 mb-3">
                             <label for="nama" class="form-label">Nama Lengkap</label>
                             <?php echo form_input($nama_lengkap, $nama_lengkap['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Lengkap" required') ?>
+                        </div>
+                        <div class="col-md-6 mt-n2 mb-3">
+                            <label for="no_telepon" class="form-label">Nomer Telepon / WA</label>
+                            <?php echo form_input($no_telepon, $no_telepon['value'], 'class="form-control" id="no_telepon" autocomplete="off" placeholder="No Telepon/WA" required') ?>
                         </div>
                         <div class="col-md-6 mt-n2 mb-3">
                             <label for="tmpt_lahir" class="form-label">Tempat Lahir</label>
@@ -99,13 +103,16 @@
                        <div class="col-md-12 mt-n2 mb-3">
                             <label for="status" class="form-label">Status</label>
                             <?php
-                                    $options = array(
-                    'pendatang' => 'Pendatang',
-                    'pribumi' => 'Pribumi',
-                    );
-                echo form_dropdown('status', $options, set_value('status', $status), 'class="form-control select2" id="status"');
-                    ?>
-
+                                $options = array(
+                                'pendatang' => 'Pendatang',
+                                'pribumi' => 'Pribumi',
+                                );
+                                echo form_dropdown('status', $options, set_value('status', $status), 'class="form-control select2" id="status"');
+                            ?>
+                        </div>
+                        <div class="col-md-12 mt-n2 mb-3">
+                            <label for="alamat" class="form-label">Alamat</label>
+                            <?php echo form_input($alamat, $alamat['value'], 'class="form-control" id="alamat" autocomplete="off" placeholder="Alamat" required') ?>
                         </div>
                     </div>
                     <?php if($page === 'Ubah') { ?>

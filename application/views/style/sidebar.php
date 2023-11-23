@@ -22,6 +22,11 @@
                         class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false"><i
                             data-feather="home" class="feather-icon"></i><span class="hide-menu">Data Masjid</span></a>
                 </li>
+                <li class="sidebar-item mt-3">
+                    <a href="<?php echo base_url('absenss')?>"
+                        class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false"><i
+                            data-feather="home" class="feather-icon"></i><span class="hide-menu">Data Absens</span></a>
+                </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                             data-feather="clipboard" class="feather-icon" style="background-color: #ffff "></i><span

@@ -15,7 +15,7 @@ class dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$data['graph'] = $this->Main_model->graph();
+		$data['chart_data'] = $this->Main_model->getChartData();
 		$this->load->view('dashboard', $data);
 	}
 }
