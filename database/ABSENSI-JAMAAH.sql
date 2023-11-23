@@ -27,6 +27,7 @@ CREATE TABLE `absensi` (
   `kehadiran` enum('Hadir','Izin','Alpha') NOT NULL,
   `nama_pengurus` varchar(255) DEFAULT NULL,
   `penerobos` varchar(255) DEFAULT NULL,
+  `tanggal_kegiatan` timestamp NOT NULL DEFAULT current_timestamp(),
   `dibuat_oleh` bigint(11) NOT NULL,
   `dibuat_pada` timestamp NOT NULL DEFAULT current_timestamp(),
   `diubah_pada` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
