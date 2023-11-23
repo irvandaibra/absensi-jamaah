@@ -55,9 +55,8 @@
                 <div class="container-fluid">
                     <div class="row">
                         <?php $this->load->view('setting/akun/akun_admin/detail_personal') ?>
-                        <?php $this->load->view('setting/akun/akun_admin/info_bisnis') ?>
                         <?php $this->load->view('setting/akun/akun_admin/id') ?>
-                        <?php $this->load->view('setting/akun/akun_admin/npwp') ?>
+                        <!-- <?php $this->load->view('setting/akun/akun_admin/npwp') ?> -->
                         <?php $this->load->view('setting/akun/akun_admin/password') ?>
                     </div>
                 </div>

@@ -8,23 +8,7 @@
         </div>
     </div>
     <hr>
-    <div class="d-flex justify-content-between mb-n4 mt-4 px-2">
-        <div>
-            <p class="text-secondary">Nama Bisnis</p>
-        </div>
-        <div>
-            <p class="fw-bold"><?php echo $akun['nama_bisnis'] ?></p>
-        </div>
-    </div>
-    <hr>
-    <div class="d-flex justify-content-between mb-n4 mt-4 px-2">
-        <div>
-            <p class="text-secondary">Alamat</p>
-        </div>
-        <div>
-            <p class="fw-bold"><?php echo $akun['alamat_bisnis'] ?></p>
-        </div>
-    </div>
+    
     <hr>
     <div class="d-flex justify-content-between mb-n4 mt-4 px-2">
         <div>
@@ -52,14 +36,5 @@
             <p class="fw-bold"><?php echo $akun['kecamatan'] ?></p>
         </div>
     </div>
-    <hr>
-    <div class="d-flex justify-content-between mb-n4 mt-4 px-2">
-        <div>
-            <p class="text-secondary">Kode Pos</p>
-        </div>
-        <div>
-            <p class="fw-bold"><?php echo $akun['kode_pos'] ?></p>
-        </div>
-    </div>
-    <hr>
+   
 </div>
