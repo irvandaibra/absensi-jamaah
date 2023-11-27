@@ -33,6 +33,29 @@
             return $this->db->get_where($table, $where);
         }
 
+        public function import_absens($data){
+            $this->db->insert_batch('absensi',$data);
+            if($this->db->affected_rows()>0)
+            {
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
+
+        public function get_jamaah_id_by_nama_lengkap($nama_lengkap)
+        {
+            $this->db->where('nama_lengkap', $nama_lengkap);
+            $query = $this->db->get('data_jamaah');
+        
+            if ($query->num_rows() > 0) {
+                $row = $query->row();
+                return $row->id;
+            } else {
+                return null;
+            }
+        }
         public function get_toko()
         {
             $data = [

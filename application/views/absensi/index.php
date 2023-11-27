@@ -55,11 +55,29 @@
                                     <h2 class="card-title mb-0">Daftar Absens</h4>
                                 </div>
                                 <div>
-                                     <a href="<?php echo base_url('')?>" class="btn btn-primary w-100">
-                                        Import Absen
-                                    </a>
+                                    <?php
+if($this->session->flashdata('message'))
+{
+echo $this->session->flashdata('message');
+}
+?>
+<span class="float-right">
+<a class="btn btn-success" href="<?php echo base_url('absenss/spreadhseet_format_download');?>" target="_blank">Download Excel Format</a>
+<a class="btn btn-info" href="<?php echo base_url('absenss/spreadsheet_export');?>" target="_blank">Download Excel Data</a>
+</span>
+                                    <form method="post" action="<?php echo base_url('absenss/spreadsheet_import');?>"
+                                        enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <input type="file" name="upload_file" class="form-control"
+                                                placeholder="Enter Name" id="upload_file" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" name="submit" class="btn btn-primary">
+                                        </div>
+                                    </form>
+
                                 </div>
-                                   
+
                             </div>
 
                         </div>
@@ -114,8 +132,7 @@ $(document).ready(function() {
             [5, 10, 50],
             [5, 10, 50]
         ],
-        columns: [
-            {
+        columns: [{
                 data: "id",
             },
             {
