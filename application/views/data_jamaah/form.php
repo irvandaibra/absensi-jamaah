@@ -67,7 +67,7 @@
                         <div class="col-md-12 mt-n2 mb-3">
                         <label for="nama" class="form-label">Kode Unik</label>
 
-                        <?php echo form_input($code_unik, $code_unik['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Lengkap" required') ?>
+                        <?php echo form_input($code_unik, $code_unik['value'], 'class="form-control" id="nama" autocomplete="off" placeholder=""') ?>
                     </div>
                         <?php } else { ?>
                     <?php } ?> 
@@ -75,19 +75,19 @@
                         </div>
                         <div class="col-md-6 mt-n2 mb-3">
                             <label for="nama" class="form-label">Nama Lengkap</label>
-                            <?php echo form_input($nama_lengkap, $nama_lengkap['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Lengkap" required') ?>
+                            <?php echo form_input($nama_lengkap, $nama_lengkap['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Lengkap"') ?>
                         </div>
                         <div class="col-md-6 mt-n2 mb-3">
                             <label for="no_telepon" class="form-label">Nomer Telepon / WA</label>
-                            <?php echo form_input($no_telepon, $no_telepon['value'], 'class="form-control" id="no_telepon" autocomplete="off" placeholder="No Telepon/WA" required') ?>
+                            <?php echo form_input($no_telepon, $no_telepon['value'], 'class="form-control" id="no_telepon" autocomplete="off" placeholder="No Telepon/WA"') ?>
                         </div>
                         <div class="col-md-6 mt-n2 mb-3">
                             <label for="tmpt_lahir" class="form-label">Tempat Lahir</label>
-                            <?php echo form_input($tmpt_lahir, $tmpt_lahir['value'], 'class="form-control" id="tmpt_lahir" autocomplete="off" placeholder="Tempat Lahir" required') ?>
+                            <?php echo form_input($tmpt_lahir, $tmpt_lahir['value'], 'class="form-control" id="tmpt_lahir" autocomplete="off" placeholder="Tempat Lahir"') ?>
                         </div>
                          <div class="col-md-6 mt-n2 mb-3">
                             <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
-                            <?php echo form_input($tgl_lahir, $tgl_lahir['value'], 'class="form-control" id="tgl_lahir" autocomplete="off" placeholder="Tanggal Lahir" required') ?>
+                            <?php echo form_input($tgl_lahir, $tgl_lahir['value'], 'class="form-control" id="tgl_lahir" autocomplete="off" placeholder="Tanggal Lahir"') ?>
                         </div>
                         <div class="col-md-12 mt-n2 mb-3">
                             <label for="" class="form-label">Kategori Usia</label>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="col-md-12 mt-n2 mb-3">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <?php echo form_input($alamat, $alamat['value'], 'class="form-control" id="alamat" autocomplete="off" placeholder="Alamat" required') ?>
+                            <?php echo form_input($alamat, $alamat['value'], 'class="form-control" id="alamat" autocomplete="off" placeholder="Alamat"') ?>
                         </div>
                     </div>
                     <?php if($page === 'Ubah') { ?>

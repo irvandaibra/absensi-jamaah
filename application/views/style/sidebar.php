@@ -22,10 +22,26 @@
                         class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false"><i
                             data-feather="credit-card" class="feather-icon"></i><span class="hide-menu">Data Masjid</span></a>
                 </li>
-                <li class="sidebar-item mt-3">
-                    <a href="<?php echo base_url('absenss')?>"
-                        class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false"><i
-                            data-feather="clipboard" class="feather-icon"></i><span class="hide-menu">Data Absens</span></a>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            data-feather="clipboard" class="feather-icon"></i><span class="hide-menu">Absensi
+                        </span></a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url('absenss')?>" class="sidebar-link"><i
+                                    data-feather="disc"></i><span class="hide-menu">
+                                    Data Absensi
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url('absenss/input_absensi')?>" class="sidebar-link"><i
+                                    data-feather="disc"></i><span class="hide-menu">
+                                    Input Absensi
+                                </span></a>
+                        </li>
+                       
+                    </ul>
                 </li>
                 
                 <li class="sidebar-item">

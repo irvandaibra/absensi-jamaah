@@ -52,32 +52,51 @@
                         <div class="border-bottom title-part-padding">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h2 class="card-title mb-0">Daftar Absens</h4>
+                                    <h2 class="card-title mb-0">Inpput Absensi</h4>
                                 </div>
-
                             </div>
+                            <div>
+                                    <?php
+                                        if($this->session->flashdata('message'))
+                                        {
+                                        echo $this->session->flashdata('message');
+                                        }
+                                        ?>
+                                    <!-- <span class="float-right">
+                                        <a class="btn btn-success"
+                                            href="<?php echo base_url('absenss/spreadhseet_format_download');?>"
+                                            target="_blank">Download Excel Format</a>
+                                        <a class="btn btn-info"
+                                            href="<?php echo base_url('absenss/spreadsheet_export');?>"
+                                            target="_blank">Download Excel Data</a>
+                                    </span> -->
+                                    <form method="post" action="<?php echo base_url('absenss/spreadsheet_import');?>"
+                                    enctype="multipart/form-data">
+                                    <div class="form-group">
+                                    <label for="pemasok" class="form-label">Pilih Tanggal Kegiatan</label>
+                                        <input type="date" name="tanggal_kegiatan" class="form-control"
+                                            placeholder="" id="tanggal_kegiatan" required>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="pemasok" class="form-label">Masuka Nama Penerobos</label>
+                                        <input type="text" name="penerobos" class="form-control"
+                                            placeholder="" id="penerobos" required>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="pemasok" class="form-label">Pilih Kegiatan</label>
+                                    <?php echo $kegiatan_id_select; ?>
+                                    </div>
+                                        <div class="form-group">
+                                            <input type="file" name="upload_file" class="form-control"
+                                                placeholder="Enter Name" id="upload_file" required>
+                                        </div>
 
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-subtitle">
-                                Dalam page ini Akan menampilkan data absensi
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="container-fluid p-3">
-                        <div class="">
-                            <table class="table table-hover table-white w-100 ">
-                                <thead>
-                                    <tr>
-                                        <th class="">ID Absen</th>
-                                        <th class="">Tanggal Kegiatan</th>
-                                        <th class="">Nama Kegiatan</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
+                                        <div class="form-group">
+                                            <input type="submit" name="submit" class="btn btn-primary">
+                                        </div>
+                                    </form>
+
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -87,45 +106,7 @@
     <?php $this->load->view('style/js') ?>
 </body>
 <script>
-var tabel = null;
-$(document).ready(function() {
-    tabel = $('.table').DataTable({
-        processing: true,
-        responsive: true,
-        serverSide: true,
-        ordering: true,
-        order: [
-            [0, 'asc']
-        ],
-        ajax: {
-            "url": "<?= base_url('absenss/get_data');?>",
-            "type": "POST"
-        },
-        deferRender: true,
-        aLengthMenu: [
-            [5, 10, 50],
-            [5, 10, 50]
-        ],
-        columns: [{
-                data: "id",
-            },
-            {
-                data: "tanggal_kegiatan",
-            },
-            {
-                data: "kegiatan_id",
-            },
-            {
-                data: "id",
-                "render": function(data, type, row, meta) {
-                    return '<a href="<?php echo base_url('')?>' + data +
-                        '" class="btn btn-sm btn-primary">Lihat Detail</a>';
-                }
-            },
-        ],
 
-    });
-});
 </script>
 
 </html>
