@@ -141,7 +141,15 @@
                         </div>
                         <div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
                             <div class="card-body">
-                                <h2>Halo 2</h2>
+                            <div class="col-md-12 mt-n2 mb-3">
+                        <label for="nama" class="form-label">Kode Unik</label>
+                        <?php  'class="form-control" id="nama" autocomplete="off" placeholder=""' ?>
+                    </div>
+                            <div class="">
+                                        <input type="hidden" class="form-control" name="id_user"
+                                            value="">
+                                        <textarea class="" name="kritik" id="ckeditor" required=""></textarea>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -154,6 +162,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+
+$("form").submit(function(e) {
+    var totalcontentlength = CKEDITOR.instances['ckeditor'].getData().replace(/<[^>]*>/gi, '').length;
+    if (!totalcontentlength) {
+        alert('Isi Terlebih Dahulu!');
+        e.preventDefault();
+    }
+});
+
     var ctx = document.getElementById('myChart').getContext('2d');
 
     var data = <?php echo json_encode($chart_data); ?>;
