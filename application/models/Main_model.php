@@ -83,6 +83,16 @@
             return $this->db->insert($table, $data);
         }
 
+        public function getwhere3($table, $where) {
+            $this->db->where($where);
+            return $this->db->get($table);
+        }
+
+        public function insert_data2($table, $data) {
+            $this->db->insert($table, $data);
+            return $this->db->insert_id();
+        }
+
         function update_data($where, $data, $table)
         {
             $this->db->where($where);

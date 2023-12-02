@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absenss</title>
-    
+
     <?php $this->load->view('style/head') ?>
 </head>
 
@@ -141,15 +141,23 @@
                         </div>
                         <div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
                             <div class="card-body">
-                            <div class="col-md-12 mt-n2 mb-3">
-                        <label for="nama" class="form-label">Kode Unik</label>
-                        <?php  'class="form-control" id="nama" autocomplete="off" placeholder=""' ?>
-                    </div>
-                            <div class="">
-                                        <input type="hidden" class="form-control" name="id_user"
-                                            value="">
-                                        <textarea class="" name="kritik" id="ckeditor" required=""></textarea>
+                                <div class="col-md-12 mt-n2 mb-3">
+                                    <div>
+                                        <form action="" method="post">
+                                            <div class="form-group">
+                                                <label for="code_user" class="form-label">Kode Unik</label>
+                                                <input type="text" class="form-control" name="code_user">
+                                            </div>
+
+                                            <!-- <div class="form-group">
+                                                <textarea class="form-control" name="saran" id="ckeditor"
+                                                    required=""></textarea>
+                                            </div> -->
+
+                                            <input type="submit" name="submit" value="Kirim" class="btn btn-primary" />
+                                        </form>
                                     </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -158,11 +166,11 @@
         </div>
         <?php $this->load->view('style/js') ?>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-
 $("form").submit(function(e) {
     var totalcontentlength = CKEDITOR.instances['ckeditor'].getData().replace(/<[^>]*>/gi, '').length;
     if (!totalcontentlength) {
@@ -171,37 +179,38 @@ $("form").submit(function(e) {
     }
 });
 
-    var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart').getContext('2d');
 
-    var data = <?php echo json_encode($chart_data); ?>;
+var data = <?php echo json_encode($chart_data); ?>;
 
-    var labels = [];
-    var values = [];
+var labels = [];
+var values = [];
 
-    data.forEach(function(item) {
-        labels.push(item.label);
-        values.push(item.value);
-    });
+data.forEach(function(item) {
+    labels.push(item.label);
+    values.push(item.value);
+});
 
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Chart Data',
-                data: values,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Chart Data',
+            data: values,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
             }
         }
-    });
+    }
+});
 </script>
+
 </html>

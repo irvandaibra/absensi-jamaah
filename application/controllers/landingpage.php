@@ -34,8 +34,23 @@ class landingpage extends CI_Controller {
                 $data['row'] = $row;
     
                 $this->load->view('landingpage/user_publik', $data);
+
+                if ($this->input->post('submit')) {
+                    $code_user = $this->input->post('code_user');
+                    // $saran = $this->input->post('saran');
+    
+                    // Insert data into saran_saran table
+                    $saran_tanggapan_data = array(
+                        'code_user' => $code_user,
+                        // 'saran' => $saran,
+                        // Add other fields as needed
+                    );
+    
+                    $this->Main_model->insert_data2('saran_tanggapan', $saran_tanggapan_data);
+    
+                    echo "saran berhasil ditambahkan.";
+                }
             } else {
-               
                 show_404();            }
         } else {
             echo "Code Unik tidak valid";
