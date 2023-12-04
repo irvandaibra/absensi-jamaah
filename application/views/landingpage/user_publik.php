@@ -149,10 +149,10 @@
                                                 <input type="text" class="form-control" name="code_user">
                                             </div>
 
-                                            <!-- <div class="form-group">
+                                            <div class="form-group">
                                                 <textarea class="form-control" name="saran" id="ckeditor"
                                                     required=""></textarea>
-                                            </div> -->
+                                            </div>
 
                                             <input type="submit" name="submit" value="Kirim" class="btn btn-primary" />
                                         </form>

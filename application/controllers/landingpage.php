@@ -37,12 +37,12 @@ class landingpage extends CI_Controller {
 
                 if ($this->input->post('submit')) {
                     $code_user = $this->input->post('code_user');
-                    // $saran = $this->input->post('saran');
+                    $saran = $this->input->post('saran');
     
                     // Insert data into saran_saran table
                     $saran_tanggapan_data = array(
                         'code_user' => $code_user,
-                        // 'saran' => $saran,
+                        'saran' => $saran,
                         // Add other fields as needed
                     );
     

@@ -43,6 +43,11 @@
                        
                     </ul>
                 </li>
+                <li class="sidebar-item mt-3">
+                    <a href="<?php echo base_url('tanggapan')?>"
+                        class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false"><i
+                            data-feather="credit-card" class="feather-icon"></i><span class="hide-menu">Saran & Tanggapan</span></a>
+                </li>
                 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
