@@ -124,9 +124,9 @@ $(document).ready(function() {
             {
                 data: "id",
                 "render": function(data, type, row, meta) {
-                    return '<a href="<?php echo base_url('data_jamaah/ubah/')?>' + data +
-                        '" class="btn btn-sm btn-primary">Ubah</a><a href="<?php echo base_url('data_jamaah/get_id/')?>' + data +
-                        '" class="btn btn-sm btn-primary">Lihat Detail</a>';
+                    return '<div"><a href="<?php echo base_url('data_jamaah/ubah/')?>' + data +
+                        '" class="btn mx-3 btn-sm btn-primary">Ubah</a><a href="<?php echo base_url('data_jamaah/get_id/')?>' + data +
+                        '" class="btn btn-sm btn-primary">Lihat Detail</a> </div>';
                 }
             },
         ],

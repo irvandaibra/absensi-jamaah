@@ -129,6 +129,9 @@ class data_jamaah extends CI_Controller {
         $data['page'] = 'Detail';
 		$where = ['id' => $id];
 		$row   = $this->Main_model->getwhere('data_jamaah', $where)->row_array();
+        $tanggal_lahir = $row["tgl_lahir"];
+        $tanggal_ditampilkan = date("d F Y", strtotime($tanggal_lahir));
+        $row["tgl_lahir_tampil"] = $tanggal_ditampilkan;
 
         $data['where'] = $where;
         $data['row'] = $row;
@@ -182,12 +185,21 @@ class data_jamaah extends CI_Controller {
 
                 $data['kategori'] = array(
                     'name'  => 'kategori',
-                    'type'  => 'text',
+                    'type' => 'select',
+                    'options' => array(
+                      'lansia' => 'Lansia',
+                      'umum' => 'Umum',
+                      'remaja' => 'Remaja',
+                    ),      
                     'value' => $this->form_validation->set_value('kategori', $row['kategori']),
                 );
                 $data['status'] = array(
                     'name'  => 'status',
-                    'type'  => 'text',
+                    'type' => 'select',
+                    'options' => array(
+                      'pendatang' => 'Pendatang',
+                      'pribumi' => 'Pribumi',
+                    ),                    
                     'value' => $this->form_validation->set_value('status', $row['status']),
                 );
                 

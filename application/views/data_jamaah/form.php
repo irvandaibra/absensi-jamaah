@@ -63,14 +63,14 @@
                     </div>
                     <hr>
                     <div class="row">
-                    <?php if($page === 'Ubah') { ?>
+                        <?php if($page === 'Ubah') { ?>
                         <div class="col-md-12 mt-n2 mb-3">
-                        <label for="nama" class="form-label">Kode Unik</label>
+                            <label for="nama" class="form-label">Kode Unik</label>
 
-                        <?php echo form_input($code_unik, $code_unik['value'], 'class="form-control" id="nama" autocomplete="off" placeholder=""') ?>
-                    </div>
+                            <?php echo form_input($code_unik, $code_unik['value'], 'class="form-control" id="nama" autocomplete="off" placeholder=""') ?>
+                        </div>
                         <?php } else { ?>
-                    <?php } ?> 
+                        <?php } ?>
                         <div class="col-md-12 mt-n2 mb-3">
                         </div>
                         <div class="col-md-6 mt-n2 mb-3">
@@ -85,30 +85,26 @@
                             <label for="tmpt_lahir" class="form-label">Tempat Lahir</label>
                             <?php echo form_input($tmpt_lahir, $tmpt_lahir['value'], 'class="form-control" id="tmpt_lahir" autocomplete="off" placeholder="Tempat Lahir"') ?>
                         </div>
-                         <div class="col-md-6 mt-n2 mb-3">
+                        <div class="col-md-6 mt-n2 mb-3">
                             <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
                             <?php echo form_input($tgl_lahir, $tgl_lahir['value'], 'class="form-control" id="tgl_lahir" autocomplete="off" placeholder="Tanggal Lahir"') ?>
                         </div>
                         <div class="col-md-12 mt-n2 mb-3">
                             <label for="" class="form-label">Kategori Usia</label>
-                            <?php
-                                $options = array(
-                                'lansia' => 'Lansia',
-                                'umum' => 'Umum',
-                                'remaja' => 'Remaja'
-                                );
-                                echo form_dropdown('kategori', $options, set_value('kategori', $kategori), 'class="form-control select2" id="kategori"');
-                                ?>
+                            <select class="form-control select2" id="kategori" data-placeholder="Pilih Status">
+                                <option value="" >Pilih</option>
+                                <option value="lansia">Lansia</option>
+                                <option value="umum">Umum</option>
+                                <option value="remaja">Remaja</option>
+                            </select>
                         </div>
-                       <div class="col-md-12 mt-n2 mb-3">
+                        <div class="col-md-12 mt-n2 mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <?php
-                                $options = array(
-                                'pendatang' => 'Pendatang',
-                                'pribumi' => 'Pribumi',
-                                );
-                                echo form_dropdown('status', $options, set_value('status', $status), 'class="form-control select2" id="status"');
-                            ?>
+                            <select class="form-control select2" id="status" data-placeholder="Pilih Status">
+                                <option value="" >Pilih</option>
+                                <option value="pendatang">Pendatang</option>
+                                <option value="pribumi">Pribumi</option>
+                            </select>
                         </div>
                         <div class="col-md-12 mt-n2 mb-3">
                             <label for="alamat" class="form-label">Alamat</label>
@@ -116,7 +112,7 @@
                         </div>
                     </div>
                     <?php if($page === 'Ubah') { ?>
-                        <button class="btn btn-danger float-start" type="button"
+                    <button class="btn btn-danger float-start" type="button"
                         onClick="location.href='<?php echo base_url('data_jamaah/nonaktif/'.$row['id'])?>'">
                         Nonaktifkan
                     </button>

@@ -83,7 +83,7 @@
                                             placeholder="" id="penerobos" required>
                                     </div>
                                     <div class="form-group">
-                                    <label for="pemasok" class="form-label">Pilih Kegiatan</label>
+                                    <label for="" class="form-label">Pilih Kegiatan</label>
                                     <?php echo $kegiatan_id_select; ?>
                                     </div>
                                         <div class="form-group">
