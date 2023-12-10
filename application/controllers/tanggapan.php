@@ -13,7 +13,6 @@ class tanggapan extends CI_Controller {
 
 	public function index()
 	{
-       
         $this->load->view('tanggapan/index');
     }
 
@@ -42,13 +41,10 @@ class tanggapan extends CI_Controller {
                     'type'  => 'text',
                     'value' => $this->form_validation->set_value('tanggapan', $row['tanggapan']),
                 );
-                
-                
 				$this->load->view('tanggapan/form', $data);
 			} else {
-                $tanggapan = $this->input->post('saran_tanggapan', true);
+                $tanggapan = $this->input->post('tanggapan', true);
                 $data = [
-                   
                     'tanggapan' => $tanggapan,
                 ];
 
@@ -56,7 +52,7 @@ class tanggapan extends CI_Controller {
 				if ($this->Main_model->update_data($where, $data, 'saran_tanggapan')) {
 					redirect('tanggapan', 'refresh');
 				} else {
-					redirect('salah', 'refresh');
+					redirect('', 'refresh');
 				}
        		}
         } else {
@@ -64,5 +60,4 @@ class tanggapan extends CI_Controller {
 		}
     }
     }
-
 }

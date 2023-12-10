@@ -134,8 +134,6 @@ class data_jamaah extends CI_Controller {
         $data['row'] = $row;
 
         $this->load->view('data_jamaah/detail_data', $data);
-
-
     }
     public function ubah($id)
 	{

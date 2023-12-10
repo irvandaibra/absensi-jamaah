@@ -45,59 +45,87 @@
         <div id="main-wrapper">
             <?php $this->load->view('style/navbar') ?>
             <?php $this->load->view('style/sidebar') ?>
-            <?php echo form_open_multipart('tanggapan/'.$this->uri->segment(2).$this->uri->segment(2) == 'ubah' && '/'.$this->uri->segment(3), 'class="mt-5 pt-5 pb-5 px-5"') ?>
-            <div class="page-wrapper shadow-lg p-3 mb-5 rounded" style="height: auto; background-color: white;">
-                <div class="page-breadcrumb">
-                    <div class="row">
-                        <div class="col-6 align-self-center">
-                            <h2 class="page-title">Menanggapi</h2>
-                        </div>
-                    </div>
-                    <?php if($page === 'Tambah') { ?>
-                    <?php } else { ?>
-                    <?php } ?>
-                </div>
-                <div class="container-fluid">
-                    <hr>
-                    <div class="row">
-                        <div>
-                            <h4>
-                                Isi Masukan / Saran
-                            </h4>
-                            <h4 class="card-title mt-2 mb-5"><?php echo $row["saran"]; ?></h4>
-                        </div>
+            <div class="page-wrapper mt-5 pt-5 pb-5 px-2" style="min-height: 100vh; background-color: #EFF5F5;">
+                <div style="background-color: #ffff;">
 
-                        <div class="col-md-12 mt-n2 mb-3">
-                            <label for="nama" class="form-label">Tanggapan </label>
-                            <div class="form-group">
-                                <textarea class="form-control" name="tanggapan" id="ckeditor" required=""></textarea>
+                    <div class="card">
+                        <div class="border-bottom title-part-padding">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h2 class="card-title mb-0">Daftar Absens</h4>
+                                </div>
+
                             </div>
+
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-subtitle">
+                                Dalam page ini Akan menampilkan data absensi
+                            </h5>
                         </div>
                     </div>
-                    <?php if($page === 'Ubah') { ?>
-                    </button>
-                    <?php } else { ?>
-                    <?php } ?>
-                    <button type="submit" class="btn btn-primary float-end mx-1"><?php echo $page ?></button>
-                    <button type="button" class="btn btn-outline-secondary mx-1" onClick="kembali()">Batal</button>
+                    <div class="container-fluid p-3">
+                        <div class="">
+                            <table class="table table-hover table-white w-100 ">
+                                <thead>
+                                    <tr>
+                                        <th class="">ID Absen</th>
+                                        <th class="">Tanggal Kegiatan</th>
+                                        <th class="">Nama Kegiatan</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <?php echo form_close(); ?>
         </div>
     </div>
     <?php $this->load->view('style/js') ?>
 </body>
 <script>
-function kembali() {
-    window.history.go(-1)
-}
+var tabel = null;
+$(document).ready(function() {
+    tabel = $('.table').DataTable({
+        processing: true,
+        responsive: true,
+        serverSide: true,
+        ordering: true,
+        order: [
+            [0, 'asc']
+        ],
+        ajax: {
+            "url": "<?= base_url('absenss/detail_data');?>",
+            "type": "POST"
+        },
+        deferRender: true,
+        aLengthMenu: [
+            [5, 10, 50],
+            [5, 10, 50]
+        ],
+        columns: [{
+                data: "",
+            },
+            {
+                data: "",
+            },
+            {
+                data: "",
+            },
+            {
+                data: "",
+                "render": function(data, type, row, meta) {
+                    return '<a href="<?php echo base_url('')?>' + data +
+                        '" class="btn btn-sm btn-primary">Lihat Detail</a>';
+                }
+            },
+        ],
 
-$("form").submit(function(e) {
-            var totalcontentlength = CKEDITOR.instances['ckeditor'].getData().replace(/<[^>]*>/gi, '').length;
-            if (!totalcontentlength) {
-                alert('Isi Terlebih Dahulu!');
-                e.preventDefault();
-            }
+    });
+});
 </script>
 
 </html>

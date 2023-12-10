@@ -65,18 +65,18 @@
                     </div>
                     <div class="container-fluid p-3">
                         <div class="">
-                            <table class="table table-hover table-white w-100 ">
-                                <thead>
-                                    <tr>
-                                        <th class="">User</th>
-                                        <th class="">Saran</th>
-                                        <th>Status</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
+                                <table class="table table-hover table-white w-100 ">
+                                    <thead>
+                                        <tr>
+                                            <th class="">User</th>
+                                            <th class="">Saran</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
                         </div>
                     </div>
                 </div>

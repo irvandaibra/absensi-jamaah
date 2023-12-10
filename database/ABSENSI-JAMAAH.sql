@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v12.5.1 (64 bit)
+SQLyog Professional v12.5.1 (64 bit)
 MySQL - 10.4.27-MariaDB : Database - data_absensi
 *********************************************************************
 */
@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS `absensi`;
 
 CREATE TABLE `absensi` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `id_daftar_absens` bigint(11) NOT NULL,
   `jamaah_id` bigint(11) NOT NULL,
   `kegiatan_id` bigint(11) DEFAULT NULL,
   `kehadiran` enum('Hadir','Izin','Alpha') NOT NULL,
@@ -31,10 +32,22 @@ CREATE TABLE `absensi` (
   `dibuat_oleh` bigint(11) NOT NULL,
   `dibuat_pada` timestamp NOT NULL DEFAULT current_timestamp(),
   `diubah_pada` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`id`,`id_daftar_absens`),
+  KEY `fk_absensi_daftar_absens` (`id_daftar_absens`),
+  CONSTRAINT `fk_absensi_daftar_absens` FOREIGN KEY (`id_daftar_absens`) REFERENCES `daftar_absens` (`id_daftar_absens`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `absensi` */
+
+insert  into `absensi`(`id`,`id_daftar_absens`,`jamaah_id`,`kegiatan_id`,`kehadiran`,`keterangan`,`penerobos`,`tanggal_kegiatan`,`dibuat_oleh`,`dibuat_pada`,`diubah_pada`) values 
+(20,1,1,2,'Alpha',NULL,'Irvan','2023-12-11',0,'2023-12-10 15:23:39','2023-12-10 15:23:39'),
+(21,1,2,2,'Alpha',NULL,'Irvan','2023-12-11',0,'2023-12-10 15:23:39','2023-12-10 15:23:39'),
+(22,1,3,2,'Alpha',NULL,'Irvan','2023-12-11',0,'2023-12-10 15:23:39','2023-12-10 15:23:39'),
+(23,1,4,2,'Alpha',NULL,'Irvan','2023-12-11',0,'2023-12-10 15:23:39','2023-12-10 15:23:39'),
+(24,1,5,2,'Alpha',NULL,'Irvan','2023-12-11',0,'2023-12-10 15:23:39','2023-12-10 15:23:39'),
+(25,1,6,2,'Alpha',NULL,'Irvan','2023-12-11',0,'2023-12-10 15:23:39','2023-12-10 15:23:39'),
+(26,1,7,2,'Alpha',NULL,'Irvan','2023-12-11',0,'2023-12-10 15:23:39','2023-12-10 15:23:39'),
+(27,1,8,2,'Alpha',NULL,'Irvan','2023-12-11',0,'2023-12-10 15:23:39','2023-12-10 15:23:39');
 
 /*Table structure for table `akun` */
 
@@ -63,6 +76,24 @@ CREATE TABLE `akun` (
 insert  into `akun`(`id`,`nama_pengguna`,`username`,`telepon`,`email`,`provinsi`,`kota`,`kecamatan`,`desa`,`password`,`role`,`dibuat_pada`,`diubah_pada`,`dihapus_pada`) values 
 (6410896282210479,'Admin POS','Admin',807952365,'admin@gmail.com','JAWA TENGAH','KOTA SEMARANG','GUNUNG PATI','GUNUNGPATI','$2y$12$eF1WkQt0DOMV7u8z6HbNzufgrSxC4TLDMW.yRk5hCmK/M5EETVrFi','Admin','2023-06-08 10:01:31','2023-09-18 08:29:17',NULL),
 (7392511986664469,NULL,'aa',0,'ada@ada',NULL,NULL,NULL,'','$2y$12$2BgEydbUmSE7k3pjgIYc6O4UPrVuDx9D5RRaTLPJ0JRPb/c1VYnVu','Admin','2023-06-08 16:36:21','2023-06-09 14:24:24',NULL);
+
+/*Table structure for table `daftar_absens` */
+
+DROP TABLE IF EXISTS `daftar_absens`;
+
+CREATE TABLE `daftar_absens` (
+  `id_daftar_absens` bigint(11) NOT NULL AUTO_INCREMENT,
+  `tanggal_kegiatan` date NOT NULL,
+  `kegiatan` bigint(11) NOT NULL,
+  `dibuat_pada` timestamp NOT NULL DEFAULT current_timestamp(),
+  `diubah_pada` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id_daftar_absens`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `daftar_absens` */
+
+insert  into `daftar_absens`(`id_daftar_absens`,`tanggal_kegiatan`,`kegiatan`,`dibuat_pada`,`diubah_pada`) values 
+(1,'2023-12-10',1,'2023-12-10 14:07:20','2023-12-10 14:07:25');
 
 /*Table structure for table `daftar_kegiatan` */
 
@@ -94,11 +125,10 @@ CREATE TABLE `data_jamaah` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `code_unik` varchar(255) DEFAULT NULL,
   `nama_lengkap` varchar(255) NOT NULL,
-  `kelamin` varchar(15) DEFAULT NULL,
   `tgl_lahir` date NOT NULL,
   `tmpt_lahir` varchar(255) NOT NULL,
   `alamat` varchar(255) NOT NULL,
-  `no_telepon` int(15) NOT NULL DEFAULT 62,
+  `no_telepon` int(22) NOT NULL,
   `kategori` varchar(25) DEFAULT NULL,
   `status` varchar(25) DEFAULT NULL,
   `dibuat_oleh` int(11) NOT NULL,
@@ -106,15 +136,22 @@ CREATE TABLE `data_jamaah` (
   `diubah_pada` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status_data` int(11) DEFAULT 1,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `data_jamaah` */
 
-insert  into `data_jamaah`(`id`,`code_unik`,`nama_lengkap`,`kelamin`,`tgl_lahir`,`tmpt_lahir`,`alamat`,`no_telepon`,`kategori`,`status`,`dibuat_oleh`,`dibuat_pada`,`diubah_pada`,`status_data`) values 
-(1,'92929928-SAID','Said',NULL,'1994-06-01','kaka','',62,'lansia','pendatang',2147483647,'2023-11-16 16:20:49','2023-11-23 21:34:36',1),
-(2,'29938499-YUAR','yuar',NULL,'2008-02-16','Demak','',62,'umum','pribumi',2147483647,'2023-11-16 16:23:01','2023-11-23 21:34:40',1),
-(3,'20080218-ALYY','frixwith',NULL,'2008-02-18','Kalimantan','',62,'umum','pendatang',2147483647,'2023-11-16 16:24:40','2023-11-23 21:34:40',1),
-(4,'20050503-BF6Z','Irvanda',NULL,'2005-05-03','Semarang','',62,'remaja','pribumi',2147483647,'2023-11-16 16:30:16','2023-11-23 21:34:43',0);
+insert  into `data_jamaah`(`id`,`code_unik`,`nama_lengkap`,`tgl_lahir`,`tmpt_lahir`,`alamat`,`no_telepon`,`kategori`,`status`,`dibuat_oleh`,`dibuat_pada`,`diubah_pada`,`status_data`) values 
+(1,'20000101-4WHJ','Slamet Riyadi','2000-01-01','Semarang','Puncak Sari',8,'umum','pribumi',0,'2023-11-30 20:31:06','2023-11-30 20:31:06',1),
+(2,'20000130-7K2C','Imam Afandi','2000-01-30','Semarang','Puncak Sari',8,'umum','pribumi',0,'2023-11-30 20:36:05','2023-11-30 20:36:05',1),
+(3,'20000130-RIWU','Faozan','2000-01-30','Semarang','Puncak Sari',8,'umum','pribumi',0,'2023-11-30 20:36:53','2023-11-30 20:36:53',1),
+(4,'20000110-TDFU','Tumar','2000-01-10','Semarang','Puncak Sari',8,'umum','pribumi',0,'2023-11-30 20:38:02','2023-11-30 20:38:02',1),
+(5,'20000111-6INC','Arif Syaifudin','2000-01-11','Semarang','',8,'umum','pribumi',0,'2023-11-30 20:38:48','2023-11-30 20:38:48',1),
+(6,'20000127-2RQX','Ardi Maulana','2000-01-27','Semarang','Puncak Sari',8,'umum','pribumi',0,'2023-11-30 20:39:33','2023-11-30 20:39:33',1),
+(7,'20000125-IDR2','Abdul Aziz','2000-01-25','Semarang','',8,'umum','pribumi',0,'2023-11-30 20:40:11','2023-11-30 20:40:11',1),
+(8,'20000112-SWJ8','Tryono','2000-01-12','Semarang','Puncak Sari',8,'umum','pribumi',0,'2023-11-30 20:41:55','2023-11-30 20:41:55',1),
+(9,'20000112-PMDY','Sadi','2000-01-12','Semarang','Puncak Sari',8,'lansia','pribumi',0,'2023-11-30 20:44:04','2023-11-30 20:44:04',1),
+(10,'20001109-ELAT','Subandi','2000-11-09','Semarang','Puncak Sari',8,'lansia','pribumi',0,'2023-11-30 20:44:41','2023-11-30 20:44:41',1),
+(11,'20000323-CLZS','Suyanto','2000-03-23','Semarang','Puncak Sari',8,'umum','pribumi',0,'2023-11-30 20:45:43','2023-11-30 20:45:43',1);
 
 /*Table structure for table `data_masjid` */
 
@@ -131,12 +168,34 @@ CREATE TABLE `data_masjid` (
   `dibuat_pada` timestamp NOT NULL DEFAULT current_timestamp(),
   `diubah_pada` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `data_masjid` */
 
-insert  into `data_masjid`(`id`,`nama_masjid`,`kyai_kelompok`,`penrobos`,`alamat_masjid`,`status`,`dibuat_oleh`,`dibuat_pada`,`diubah_pada`) values 
-(1,'Al-Manshurin','Slamet Riyadi','Triyono','Jl. Puncak Sari, Tambak Aji, Ngaliyan, Semarang',0,2147483647,'2023-11-20 23:00:44','2023-11-23 21:32:31');
+/*Table structure for table `saran_tanggapan` */
+
+DROP TABLE IF EXISTS `saran_tanggapan`;
+
+CREATE TABLE `saran_tanggapan` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `code_user` varchar(255) NOT NULL,
+  `saran` text DEFAULT NULL,
+  `tanggapan` text DEFAULT NULL,
+  `dibuat_pada` timestamp NOT NULL DEFAULT current_timestamp(),
+  `diubah_pada` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `saran_tanggapan` */
+
+insert  into `saran_tanggapan`(`id`,`code_user`,`saran`,`tanggapan`,`dibuat_pada`,`diubah_pada`) values 
+(1,'20000125-IDR2','<p>iya</p>\r\n',NULL,'2023-12-10 19:14:24','2023-12-10 19:14:24'),
+(2,'20000125-IDR2','<p>oke</p>\r\n',NULL,'2023-12-10 19:14:34','2023-12-10 19:14:34'),
+(3,'20000125-IDR2','<p>oke</p>\r\n',NULL,'2023-12-10 19:14:43','2023-12-10 19:14:43'),
+(4,'20000125-IDR2','<p>oke</p>\r\n',NULL,'2023-12-10 19:14:54','2023-12-10 19:14:54'),
+(5,'20000125-IDR2','<p>oke</p>\r\n',NULL,'2023-12-10 19:15:17','2023-12-10 19:15:17'),
+(6,'20000125-IDR2','<p>siap</p>\r\n',NULL,'2023-12-10 19:15:24','2023-12-10 19:15:24'),
+(7,'20000125-IDR2','<p>siap</p>\r\n',NULL,'2023-12-10 19:15:36','2023-12-10 19:15:36');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

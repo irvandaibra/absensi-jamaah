@@ -144,20 +144,32 @@
                                 <div class="col-md-12 mt-n2 mb-3">
                                     <div>
                                         <form action="" method="post">
-                                            <div class="form-group">
-                                                <label for="code_user" class="form-label">Kode Unik</label>
-                                                <input type="text" class="form-control" name="code_user">
-                                            </div>
-
+                                            
                                             <div class="form-group">
                                                 <textarea class="form-control" name="saran" id="ckeditor"
                                                     required=""></textarea>
                                             </div>
+                                            <div class="mt-3">
 
-                                            <input type="submit" name="submit" value="Kirim" class="btn btn-primary" />
+                                                <input type="submit" name="submit" value="Kirim" class="btn btn-primary" />
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
+                                <div>
+                                    
+                                </div>
+                                <table class="table table-hover table-white w-100 ">
+                                <thead>
+                                    <tr>
+                                        <th>Code User</th>
+                                        <th>Saran</th>
+                                        <th>Tanggapan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                             </div>
                         </div>
                     </div>
@@ -166,10 +178,6 @@
         </div>
         <?php $this->load->view('style/js') ?>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 $("form").submit(function(e) {
     var totalcontentlength = CKEDITOR.instances['ckeditor'].getData().replace(/<[^>]*>/gi, '').length;
@@ -179,37 +187,38 @@ $("form").submit(function(e) {
     }
 });
 
-var ctx = document.getElementById('myChart').getContext('2d');
+var tabel = null;
+$(document).ready(function() {
+    tabel = $('.table').DataTable({
+        processing: true,
+        responsive: true,
+        serverSide: true,
+        ordering: true,
+        order: [
+            [0, 'asc']
+        ],
+        ajax: {
+            "url": "<?= base_url('landingpage/saran_tanggapan');?>",
+            "type": "POST"
+        },
+        deferRender: true,
+        aLengthMenu: [
+            [5, 10, 50],
+            [5, 10, 50]
+        ],
+        columns: [
+            {
+                data: "code_user",
+            },
+            {
+                data: "saran",
+            },
+            {
+                data: "tanggapan",
+            },
+        ],
 
-var data = <?php echo json_encode($chart_data); ?>;
-
-var labels = [];
-var values = [];
-
-data.forEach(function(item) {
-    labels.push(item.label);
-    values.push(item.value);
-});
-
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: labels,
-        datasets: [{
-            label: 'Chart Data',
-            data: values,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+    });
 });
 </script>
 

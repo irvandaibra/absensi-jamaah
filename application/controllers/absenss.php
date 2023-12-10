@@ -29,8 +29,8 @@ class absenss extends CI_Controller {
     function get_data()
     {
         header('Content-Type: application/json');
-        $tables = "absensi";
-        $search = array('kegiatan_id');
+        $tables = "daftar_absens";
+        $search = array('kegiatan');
 		$isWhere = null;
 		echo $this->Main_model->get_tables($tables,$search,$isWhere);
     }
@@ -125,11 +125,12 @@ class absenss extends CI_Controller {
             $kehadiran = $alfa;
 			
         }
-
+				$id_abs = 1;
 				$jamaah_id = $this->Main_model->get_jamaah_id_by_nama_lengkap($nama_lengkap);
 				if($jamaah_id) {
 					$data[]=array(
 						'tanggal_kegiatan'=>$tanggal_kegiatan,
+						'id_daftar_absens' =>$id_abs,	
 						'penerobos'=>$penerobos,
 						'kegiatan_id'=>$kegiatan_id,
             			'jamaah_id'=>$jamaah_id,
@@ -150,4 +151,13 @@ class absenss extends CI_Controller {
 		}
 	}
 
+	public function detail_absens($id) {
+		$where = ['id_daftar_absens' => $id];
+		$row   = $this->Main_model->getwhere('absensi', $where)->row_array();
+
+        $data['where'] = $where;
+        $data['row'] = $row;
+
+        $this->load->view('absensi/detail_data', $data);
+	}
 }

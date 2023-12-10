@@ -78,6 +78,14 @@
             return $this->db->count_all_results();
         }
 
+        public function getwhere_in($table, $where_in, $order_by = '') {
+            $this->db->where_in($where_in);
+            if ($order_by) {
+              $this->db->order_by($order_by);
+            }
+            return $this->db->get($table);
+          }
+
         function insert_data($data, $table)
         {
             return $this->db->insert($table, $data);

@@ -36,19 +36,16 @@ class landingpage extends CI_Controller {
                 $this->load->view('landingpage/user_publik', $data);
 
                 if ($this->input->post('submit')) {
-                    $code_user = $this->input->post('code_user');
+                    $code_user = $code_unik;
                     $saran = $this->input->post('saran');
     
-                    // Insert data into saran_saran table
                     $saran_tanggapan_data = array(
                         'code_user' => $code_user,
                         'saran' => $saran,
-                        // Add other fields as needed
                     );
-    
-                    $this->Main_model->insert_data2('saran_tanggapan', $saran_tanggapan_data);
-    
-                    echo "saran berhasil ditambahkan.";
+                    if ($this->Main_model->insert_data2('saran_tanggapan', $saran_tanggapan_data)) {
+                    } else {
+                    }
                 }
             } else {
                 show_404();            }
@@ -57,8 +54,12 @@ class landingpage extends CI_Controller {
         }
     }
 
-    public function saran_tanggagapan(){
-        
+    public function saran_tanggapan() { 
+        header('Content-Type: application/json');
+        $tables = "saran_tanggapan";
+        $search = array('code_user');
+		$isWhere = null;
+		echo $this->Main_model->get_tables($tables,$search,$isWhere);
     }
 
 }
