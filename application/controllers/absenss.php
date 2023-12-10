@@ -160,4 +160,10 @@ class absenss extends CI_Controller {
 
         $this->load->view('absensi/detail_data', $data);
 	}
+
+	public function print() {
+		$data['abesens'] = $this->Main_model->get('daftar_absens')->result();
+		$this->load->view('laporan_data', $data);
+	}
+
 }

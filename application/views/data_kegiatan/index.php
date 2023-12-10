@@ -47,24 +47,25 @@
             <?php $this->load->view('style/sidebar') ?>
             <div class="page-wrapper mt-5 pt-5 pb-5 px-2" style="min-height: 100vh; background-color: #EFF5F5;">
                 <div style="background-color: #ffff;">
-                   
+
                     <div class="card">
                         <div class="border-bottom title-part-padding">
-                        <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between">
                                 <div>
                                     <h2 class="card-title mb-0">Daftar Kegiatan</h4>
                                 </div>
                                 <div>
-                                     <a href="<?php echo base_url('daftar_kegiatan/tambah')?>" class="btn btn-primary w-100">
+                                    <a href="<?php echo base_url('daftar_kegiatan/tambah')?>"
+                                        class="btn btn-primary w-100">
                                         Tambah Data
                                     </a>
                                 </div>
-                                   
+
                             </div>
                         </div>
                         <div class="card-body">
                             <h5 class="card-subtitle">
-                               Dalam page ini Akan menampilkan data-data Kegiatan Di Kelompok ini
+                                Dalam page ini Akan menampilkan data-data Kegiatan Di Kelompok ini
                             </h5>
                         </div>
                     </div>
@@ -110,8 +111,7 @@ $(document).ready(function() {
             [5, 10, 50],
             [5, 10, 50]
         ],
-        columns: [
-            {
+        columns: [{
                 data: "id",
             },
             {
@@ -119,6 +119,13 @@ $(document).ready(function() {
             },
             {
                 data: "status_kegiatan",
+                "render": function(data, type, row, meta) {
+                    if (data == 1) {
+                        return "<a class=>Aktif</a>";
+                    } else {
+                        return "Tidak Aktif";
+                    }
+                }
             },
             {
                 data: "id",
