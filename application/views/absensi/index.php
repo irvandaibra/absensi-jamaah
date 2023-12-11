@@ -54,18 +54,6 @@
                                 <div>
                                     <h2 class="card-title mb-0">Daftar Absens</h4>
                                 </div>
-                                <div>
-                                    <a href="<?php echo base_url('absenss/pdf')?>"
-                                        class="btn btn-primary w-100">
-                                        Download PDF
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="<?php echo base_url('absenss/print')?>"
-                                        class="btn btn-primary w-100">
-                                        Print
-                                    </a>
-                                </div>
                             </div>
                         </div>
                         <div class="card-body">

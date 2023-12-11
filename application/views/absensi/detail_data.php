@@ -47,16 +47,29 @@
             <?php $this->load->view('style/sidebar') ?>
             <div class="page-wrapper mt-5 pt-5 pb-5 px-2" style="min-height: 100vh; background-color: #EFF5F5;">
                 <div style="background-color: #ffff;">
-
                     <div class="card">
                         <div class="border-bottom title-part-padding">
                             <div class="d-flex justify-content-between">
                                 <div>
                                     <h2 class="card-title mb-0">Daftar Detail Absens: <?php echo ChangeDateFormat('l, d F Y', $this->uri->segment(3)) ?></h4>
                                 </div>
-
+                                <!-- <div>
+                                    <a href="<?php echo base_url('absenss/pdf')?>"
+                                        class="btn btn-primary w-100">
+                                        Download PDF
+                                    </a>
+                                </div> -->
+                                <div>
+                                    <a href="<?php echo base_url('absenss/print')?>"
+                                        class="btn btn-primary w-100">
+                                        Donwload / Print PDF
+                                    </a>
+                                </div>
                             </div>
+                            <div  class="mt-4">
 
+                                <h3>kegiatan : </h3>
+                            </div>
                         </div>
                     </div>
                     <div class="container-fluid p-3">
