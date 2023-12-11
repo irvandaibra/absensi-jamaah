@@ -64,8 +64,9 @@
                             <table class="table table-hover table-white w-100 ">
                                 <thead>
                                     <tr>
-                                        <th class="">ID Absen</th>
+                                        <th class="">No</th>
                                         <th class="">Nama Jamaah</th>
+                                        <th class="">Kehadiran</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -81,16 +82,13 @@
     <?php $this->load->view('style/js') ?>
 </body>
 <script>
-var tabel = null;
 $(document).ready(function() {
-    tabel = $('.table').DataTable({
+    $('.table').DataTable({
         processing: true,
         responsive: true,
         serverSide: true,
         ordering: true,
-        order: [
-            [0, 'asc']
-        ],
+        order: [[0, 'asc']],
         ajax: {
             "url": "<?= base_url('absenss/get_detail_data/').$this->uri->segment(3)?>",
             "type": "POST"
@@ -101,11 +99,12 @@ $(document).ready(function() {
             [5, 10, 50]
         ],
         columns: [
-            {
-                data: "id",
-            },
+            {data: "id"},
             {
                 data: "nama",
+            },
+            {
+                data: "kehadiran",
             },
             {
                 data: "id",
@@ -114,7 +113,14 @@ $(document).ready(function() {
                 }
             },
         ],
-
+        columnDefs: [
+            {
+                targets: 0,
+                render: function (row) {
+                    return row;
+                }
+            },
+        ]
     });
 });
 </script>
