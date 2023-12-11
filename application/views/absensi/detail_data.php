@@ -52,16 +52,11 @@
                         <div class="border-bottom title-part-padding">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h2 class="card-title mb-0">Daftar Absens</h4>
+                                    <h2 class="card-title mb-0">Daftar Detail Absens: <?php echo ChangeDateFormat('l, d F Y', $this->uri->segment(3)) ?></h4>
                                 </div>
 
                             </div>
 
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-subtitle">
-                                Dalam page ini Akan menampilkan data absensi
-                            </h5>
                         </div>
                     </div>
                     <div class="container-fluid p-3">
@@ -70,8 +65,7 @@
                                 <thead>
                                     <tr>
                                         <th class="">ID Absen</th>
-                                        <th class="">Tanggal Kegiatan</th>
-                                        <th class="">Nama Kegiatan</th>
+                                        <th class="">Nama Jamaah</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -98,7 +92,7 @@ $(document).ready(function() {
             [0, 'asc']
         ],
         ajax: {
-            "url": "<?= base_url('absenss/detail_data');?>",
+            "url": "<?= base_url('absenss/get_detail_data/').$this->uri->segment(3)?>",
             "type": "POST"
         },
         deferRender: true,
@@ -106,20 +100,17 @@ $(document).ready(function() {
             [5, 10, 50],
             [5, 10, 50]
         ],
-        columns: [{
-                data: "",
+        columns: [
+            {
+                data: "id",
             },
             {
-                data: "",
+                data: "nama",
             },
             {
-                data: "",
-            },
-            {
-                data: "",
+                data: "id",
                 "render": function(data, type, row, meta) {
-                    return '<a href="<?php echo base_url('')?>' + data +
-                        '" class="btn btn-sm btn-primary">Lihat Detail</a>';
+                    return '<a href="<?php echo base_url('absenss/')?>" class="btn btn-sm btn-primary">Do Something</a>';
                 }
             },
         ],

@@ -118,17 +118,18 @@ $(document).ready(function() {
             [5, 10, 50],
             [5, 10, 50]
         ],
-        columns: [{
-                data: "id_daftar_absens",
+        columns: [
+            {
+                data: "id",
             },
             {
                 data: "tanggal_kegiatan",
             },
             {
-                data: "kegiatan",
+                data: "kegiatan_id",
             },
             {
-                data: "id_daftar_absens",
+                data: "tanggal_kegiatan",
                 "render": function(data, type, row, meta) {
                     return '<a href="<?php echo base_url('absenss/detail_absens/')?>' + data +
                         '" class="btn btn-sm btn-primary">Lihat Detail</a>';

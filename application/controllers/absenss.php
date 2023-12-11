@@ -12,7 +12,7 @@ class absenss extends CI_Controller {
         parent::__construct();
 		$this->load->model('Main_model');
 		date_default_timezone_set('Asia/Jakarta');
-		$this->load->helper(['url', 'form', 'html']);
+		$this->load->helper(['url', 'form', 'html', 'main_helper']);
 		$this->load->library(['session', 'form_validation']);
 		if ($this->session->userdata('logged_in') === NULL) {
             redirect(base_url());
@@ -20,8 +20,7 @@ class absenss extends CI_Controller {
     }
 
     public function index()
-    {
-		
+    {	
 		$data['data'] = $this->Main_model->get('absensi')->result();
 		$this->load->view('absensi/index', $data);
     }
@@ -29,8 +28,8 @@ class absenss extends CI_Controller {
     function get_data()
     {
         header('Content-Type: application/json');
-        $tables = "daftar_absens";
-        $search = array('kegiatan');
+        $tables = "absensi";
+        $search = array('kegiatan_id');
 		$isWhere = null;
 		echo $this->Main_model->get_tables($tables,$search,$isWhere);
     }
@@ -151,15 +150,28 @@ class absenss extends CI_Controller {
 		}
 	}
 
-	public function detail_absens($id) {
-		$where = ['id_daftar_absens' => $id];
-		$row   = $this->Main_model->getwhere('absensi', $where)->row_array();
+	public function detail_absens($tgl) {
+		$where = ['tanggal_kegiatan' => $tgl];
+		$row   = $this->Main_model->getwhere('absensi', $where)->result();
 
         $data['where'] = $where;
         $data['row'] = $row;
 
         $this->load->view('absensi/detail_data', $data);
 	}
+
+    function get_detail_data($tgl)
+    {
+        header('Content-Type: application/json');
+
+		$query = "SELECT data_jamaah.nama_lengkap AS nama, absensi.* FROM absensi
+				 JOIN data_jamaah ON absensi.jamaah_id = data_jamaah.id";
+        $search = array('tanggal_kegiatan');
+		$where = array('tanggal_kegiatan' => $tgl);
+        $isWhere = null;
+
+        echo $this->Main_model->get_tables_query($query,$search,$where,$isWhere);
+    }
 
 	public function print() {
 		$data['abesens'] = $this->Main_model->get('daftar_absens')->result();
