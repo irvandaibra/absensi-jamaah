@@ -166,7 +166,7 @@ class absenss extends CI_Controller {
 
 		$query = "SELECT data_jamaah.nama_lengkap AS nama, absensi.* FROM absensi
 				 JOIN data_jamaah ON absensi.jamaah_id = data_jamaah.id";
-        $search = array('tanggal_kegiatan');
+        $search = array('kehadiran', 'nama_lengkap');
 		$where = array('tanggal_kegiatan' => $tgl);
         $isWhere = null;
 
