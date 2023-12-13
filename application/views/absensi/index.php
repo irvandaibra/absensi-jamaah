@@ -67,7 +67,7 @@
                             <table class="table table-hover table-white w-100 ">
                                 <thead>
                                     <tr>
-                                        <th class="">ID Absen</th>
+                                        <th class="">No</th>
                                         <th class="">Tanggal Kegiatan</th>
                                         <th class="">Nama Kegiatan</th>
                                         <th>Aksi</th>
@@ -85,8 +85,6 @@
     <?php $this->load->view('style/js') ?>
 </body>
 <script>
-
-
 var tabel = null;
 $(document).ready(function() {
     tabel = $('.table').DataTable({
@@ -108,13 +106,16 @@ $(document).ready(function() {
         ],
         columns: [
             {
-                data: "id",
+                data: 'tanggal_kegiatan',
+                render: function(data, type, row, meta) {
+                    return meta.row+1;
+                }
+            },
+            {
+                data: "nama_kegiatan",
             },
             {
                 data: "tanggal_kegiatan",
-            },
-            {
-                data: "kegiatan_id",
             },
             {
                 data: "tanggal_kegiatan",

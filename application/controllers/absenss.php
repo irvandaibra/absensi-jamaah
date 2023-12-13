@@ -28,10 +28,14 @@ class absenss extends CI_Controller {
     function get_data()
     {
         header('Content-Type: application/json');
-        $tables = "absensi";
-        $search = array('kegiatan_id');
-		$isWhere = null;
-		echo $this->Main_model->get_tables($tables,$search,$isWhere);
+
+		$query = "SELECT DISTINCT absensi.tanggal_kegiatan, daftar_kegiatan.nama_kegiatan FROM absensi
+				  JOIN daftar_kegiatan ON absensi.kegiatan_id = daftar_kegiatan.id";
+        $search = array('tanggal_kegiatan');
+		$where = array('');
+        $isWhere = NULL;
+
+        echo $this->Main_model->get_tables_query($query,$search,$where,$isWhere);
     }
 
 	public function input_absensi() {
