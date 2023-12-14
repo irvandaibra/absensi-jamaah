@@ -68,7 +68,7 @@
                             </div>
                             <div  class="mt-4">
 
-                                <h3>kegiatan : </h3>
+                                <h3>Kegiatan : <?php echo $data ?></h3>
                             </div>
                         </div>
                     </div>
