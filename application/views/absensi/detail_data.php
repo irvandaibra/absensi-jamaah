@@ -128,8 +128,8 @@ $(document).ready(function() {
         columnDefs: [
             {
                 targets: 0,
-                render: function (row) {
-                    return row;
+                render: function (data, type, row, meta) {
+                    return meta.row+1;
                 }
             },
         ]
