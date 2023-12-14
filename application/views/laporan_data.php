@@ -150,11 +150,9 @@ $(document).ready(function() {
                 data: "kehadiran",
             },
             {
-                data: "id",
-                "render": function(data, type, row, meta) {
-                    return '<a href="<?php echo base_url('absenss/')?>" class="btn btn-sm btn-primary">Do Something</a>';
-                }
+                data: "",
             },
+           
         ],
         columnDefs: [{
             targets: 0,

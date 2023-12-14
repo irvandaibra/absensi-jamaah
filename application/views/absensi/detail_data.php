@@ -61,13 +61,12 @@
                                 </div> -->
                                 <div>
                                     <a href="<?php echo base_url('absenss/print')?>"
-                                        class="btn btn-primary w-100">
+                                        class="btn btn-primary w-100 blank" target="_blank">
                                         Donwload / Print PDF
                                     </a>
                                 </div>
                             </div>
                             <div  class="mt-4">
-
                                 <h3>Kegiatan : <?php echo $data ?></h3>
                             </div>
                         </div>

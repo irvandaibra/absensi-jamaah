@@ -68,8 +68,8 @@
                                 <thead>
                                     <tr>
                                         <th class="">No</th>
-                                        <th class="">Tanggal Kegiatan</th>
                                         <th class="">Nama Kegiatan</th>
+                                        <th class="">Tanggal Kegiatan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>

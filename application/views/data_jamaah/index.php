@@ -54,14 +54,17 @@
                                 <div>
                                     <h2 class="card-title mb-0">Daftar Jama'ah</h4>
                                 </div>
-                                <div>
-                                     <a href="<?php echo base_url('data_jamaah/tambah')?>" class="btn btn-primary w-100">
+                                <div class="d-flex">
+                                    <div class="w-auto p-1">
+                                        <a href="<?php echo base_url('data_jamaah/tambah')?>" class="btn btn-primary w-100">
                                         Tambah Data
                                     </a>
-                                </div>
-                                   
+                                    </div>
+                                     <div class="w-auto p-1">
+                                         <a class="btn btn-success" href="<?php echo base_url('absenss/spreadhseet_format_download');?>" target="_blank">Download Excel Format</a>
+                                     </div>
+                                </div>                                
                             </div>
-
                         </div>
                         <div class="card-body">
                             <h5 class="card-subtitle">
