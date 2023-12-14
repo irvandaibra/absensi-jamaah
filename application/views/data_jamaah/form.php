@@ -91,39 +91,43 @@
                         </div>
                         <div class="col-md-12 mt-n2 mb-3">
                             <label for="" class="form-label">Kategori Usia</label>
-                            <select class="form-control select2" id="kategori" data-placeholder="Pilih Status">
-                                <option value="" >Pilih</option>
-                                <option value="lansia">Lansia</option>
-                                <option value="umum">Umum</option>
-                                <option value="remaja">Remaja</option>
-                            </select>
+                            <?php
+                                $options = array(
+                                'lansia' => 'Lansia',
+                                'umum' => 'Umum',
+                                'remaja' => 'Remaja'
+                                );
+                                echo form_dropdown('kategori', $options, set_value('kategori', $kategori), 'class="form-control select2" id="kategori"');
+                                ?>
                         </div>
                         <div class="col-md-12 mt-n2 mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <select class="form-control select2" id="status" data-placeholder="Pilih Status">
-                                <option value="" >Pilih</option>
-                                <option value="pendatang">Pendatang</option>
-                                <option value="pribumi">Pribumi</option>
-                            </select>
+                            <?php
+                                $options = array(
+                                'pendatang' => 'Pendatang',
+                                'pribumi' => 'Pribumi',
+                                );
+                                echo form_dropdown('status', $options, set_value('status', $status), 'class="form-control select2" id="status"');
+                            ?>
                         </div>
                         <div class="col-md-12 mt-n2 mb-3">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <?php echo form_input($alamat, $alamat['value'], 'class="form-control" id="alamat" autocomplete="off" placeholder="Alamat"') ?>
+                            <?php echo form_textarea($alamat, $alamat['value'], 'class="form-control" id="alamat" autocomplete="off" placeholder="Alamat"') ?>
                         </div>
                     </div>
                     <?php if($page === 'Ubah') { ?>
-                    <button class="btn btn-danger float-start" type="button"
+                    <button class="btn btn-danger float-start mx-2" type="button"
                         onClick="location.href='<?php echo base_url('data_jamaah/nonaktif/'.$row['id'])?>'">
                         Nonaktifkan
                     </button>
-                    <button class="btn btn-info float-start" type="button"
+                    <button class="btn btn-info float-start mx-2" type="button"
                         onClick="location.href='<?php echo base_url('data_jamaah/aktif/'.$row['id'])?>'">
                         Aktifkan
                     </button>
                     <?php } else { ?>
                     <?php } ?>
-                    <button type="submit" class="btn btn-primary float-end mx-1"><?php echo $page ?></button>
-                    <button type="button" class="btn btn-outline-secondary mx-1" onClick="kembali()">Batal</button>
+                    <button type="submit" class="btn btn-primary float-end mx-2"><?php echo $page ?></button>
+                    <button type="button" class="btn btn-outline-secondary mx-2" onClick="kembali()">Batal</button>
                 </div>
             </div>
             <?php echo form_close(); ?>

@@ -67,6 +67,18 @@
                             <label for="nama" class="form-label">Nama Masjid</label>
                             <?php echo form_input($nama_masjid, $nama_masjid['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Masjid" required') ?>
                         </div>
+                        <div class="col-md-12 mt-n2 mb-3">
+                            <label for="nama" class="form-label">Nama Kyai Kelompok</label>
+                            <?php echo form_input($kyai_kelompok, $kyai_kelompok['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Kyai Kelompok" required') ?>
+                        </div>
+                        <div class="col-md-12 mt-n2 mb-3">
+                            <label for="nama" class="form-label">Nama Penrobos</label>
+                            <?php echo form_input($penrobos, $penrobos['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Nama Penrobos" required') ?>
+                        </div>
+                        <div class="col-md-12 mt-n2 mb-3">
+                            <label for="nama" class="form-label">Alamat Masjid</label>
+                            <?php echo form_input($alamat_masjid, $alamat_masjid['value'], 'class="form-control" id="nama" autocomplete="off" placeholder="Alamat Masjid" required') ?>
+                        </div>
                     </div>
                     <?php if($page === 'Ubah') { ?>
                         <button class="btn btn-danger float-start" type="button"

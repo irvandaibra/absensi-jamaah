@@ -56,13 +56,13 @@
                                 </div>
                             </div>
                             <div>
-                                    <?php
+                                <?php
                                         if($this->session->flashdata('message'))
                                         {
                                         echo $this->session->flashdata('message');
                                         }
                                         ?>
-                                    <!-- <span class="float-right">
+                                <!-- <span class="float-right">
                                         <a class="btn btn-success"
                                             href="<?php echo base_url('absenss/spreadhseet_format_download');?>"
                                             target="_blank">Download Excel Format</a>
@@ -70,33 +70,33 @@
                                             href="<?php echo base_url('absenss/spreadsheet_export');?>"
                                             target="_blank">Download Excel Data</a>
                                     </span> -->
-                                    <form method="post" action="<?php echo base_url('absenss/spreadsheet_import');?>"
+                                <form method="post" action="<?php echo base_url('absenss/spreadsheet_import');?>"
                                     enctype="multipart/form-data">
-                                    <div class="form-group">
-                                    <label for="pemasok" class="form-label">Pilih Tanggal Kegiatan</label>
-                                        <input type="date" name="tanggal_kegiatan" class="form-control"
-                                            placeholder="" id="tanggal_kegiatan" required>
+                                    <div class="form-group  my-3">
+                                        <label for="pemasok" class="form-label">Pilih Tanggal Kegiatan</label>
+                                        <input type="date" name="tanggal_kegiatan" class="form-control" placeholder=""
+                                            id="tanggal_kegiatan" required>
                                     </div>
-                                    <div class="form-group">
-                                    <label for="pemasok" class="form-label">Masuka Nama Penerobos</label>
-                                        <input type="text" name="penerobos" class="form-control"
-                                            placeholder="" id="penerobos" required>
+                                    <div class="form-group  my-3">
+                                        <label for="pemasok" class="form-label">Masuka Nama Penerobos</label>
+                                        <input type="text" name="penerobos" class="form-control" placeholder=""
+                                            id="penerobos" required>
                                     </div>
-                                    <div class="form-group">
-                                    <label for="" class="form-label">Pilih Kegiatan</label>
-                                    <?php echo $kegiatan_id_select; ?>
+                                    <div class="form-group my-3">
+                                        <label for="" class="form-label">Pilih Kegiatan</label>
+                                        <?php echo $kegiatan_id_select; ?>
                                     </div>
-                                        <div class="form-group">
-                                            <input type="file" name="upload_file" class="form-control"
-                                                placeholder="Enter Name" id="upload_file" required>
-                                        </div>
+                                    <div class="form-group  my-3">
+                                        <label for="" class="form-label">Pilih File Ecxel</label>
+                                        <input type="file" name="upload_file" class="form-control"
+                                            placeholder="Enter Name" id="upload_file" required>
+                                    </div>
+                                    <div class="form-group  my-3">
+                                        <input type="submit" name="submit" class="btn btn-primary">
+                                    </div>
+                                </form>
 
-                                        <div class="form-group">
-                                            <input type="submit" name="submit" class="btn btn-primary">
-                                        </div>
-                                    </form>
-
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

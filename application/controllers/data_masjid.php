@@ -40,14 +40,36 @@ class data_masjid extends CI_Controller {
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('nama_masjid'),
             );
+            $data['kyai_kelompok'] = array(
+                'name'  => 'kyai_kelompok',
+                'type'  => 'text',
+                'value' => $this->form_validation->set_value('kyai_kelompok'),
+            );
+            $data['penrobos'] = array(
+                'name'  => 'penrobos',
+                'type'  => 'text',
+                'value' => $this->form_validation->set_value('penrobos'),
+            );
+            $data['alamat_masjid'] = array(
+                'name'  => 'alamat_masjid',
+                'type'  => 'text',
+                'value' => $this->form_validation->set_value('alamat_masjid'),
+            );
+            
            
 			$this->load->view('data_masjid/form', $data);
 
         } else {
             $nama_masjid = $this->input->post('nama_masjid', true);
+            $kyai_kelompok = $this->input->post('kyai_kelompok', true);
+            $penrobos = $this->input->post('penrobos', true);
+            $alamat_masjid = $this->input->post('alamat_masjid', true);
            
             $data = [
                 'nama_masjid' => $nama_masjid,
+                'kyai_kelompok' => $kyai_kelompok,
+                'penrobos' => $penrobos,
+                'alamat_masjid' => $alamat_masjid,
                
             ];
 			if ($this->Main_model->insert_data($data, 'data_masjid')) {

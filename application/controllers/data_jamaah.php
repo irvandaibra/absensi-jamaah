@@ -186,20 +186,13 @@ class data_jamaah extends CI_Controller {
                 $data['kategori'] = array(
                     'name'  => 'kategori',
                     'type' => 'select',
-                    'options' => array(
-                      'lansia' => 'Lansia',
-                      'umum' => 'Umum',
-                      'remaja' => 'Remaja',
-                    ),      
+                 
                     'value' => $this->form_validation->set_value('kategori', $row['kategori']),
                 );
                 $data['status'] = array(
                     'name'  => 'status',
                     'type' => 'select',
-                    'options' => array(
-                      'pendatang' => 'Pendatang',
-                      'pribumi' => 'Pribumi',
-                    ),                    
+                    
                     'value' => $this->form_validation->set_value('status', $row['status']),
                 );
                 
