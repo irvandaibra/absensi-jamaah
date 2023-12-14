@@ -156,9 +156,12 @@ class absenss extends CI_Controller {
 
 	public function detail_absens($tgl) {
 		$absen = $this->Main_model->getwhere('absensi', ['tanggal_kegiatan' => $tgl])->row()->kegiatan_id;
-
-		$data['data'] = Kegiatan_ByAbsensi($absen, "nama_kegiatan");
-		$this->load->view('absensi/detail_data', $data);
+		if(empty($absen)) {
+			redirect('absenss');
+		} else {
+			$data['data'] = Kegiatan_ByAbsensi($absen, "nama_kegiatan");
+			$this->load->view('absensi/detail_data', $data);
+		}
 	}
 
     function get_detail_data($tgl)
