@@ -64,7 +64,7 @@
                             <form method="get" action="<?= base_url('landingpage/user_index'); ?>">
                                 <div
                                     class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start mb-3">
-                                    <div class="form-floating mb-3">
+                                    <div class="form-floating">
                                         <input type="text" name="code_unik"
                                             class="form-control form-control-lg border border-success"
                                             placeholder="Username" />

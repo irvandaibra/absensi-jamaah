@@ -11,7 +11,7 @@
     <meta name="description"
         content="Xtreme is powerful and clean admin dashboard template, inpired from Google's Material Design" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>POS</title>
+    <title>Absensi</title>
     <link rel="icon" type="image/png" href="<?php echo base_url('package/assets/images/logo-pos.png')?>" />
     <style>
     .card-dashboard {
@@ -55,14 +55,14 @@
                     <div class="row">
                         <div class="col-5 align-self-center">
                             <h2 class="page-title">Dashboard</h2>
-                           
+
                         </div>
                     </div>
                 </div>
                 <div class="container-fluid">
-                <div style="width:75%;">
-                    <canvas id="myChart"></canvas>
-                </div>
+                    <div style="width:75%;">
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@
     <meta name="description"
         content="Xtreme is powerful and clean admin dashboard template, inpired from Google's Material Design" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>POS</title>
+<title>Absensi</title>
     <link rel="icon" type="image/png" href="<?php echo base_url('package/assets/images/logo-pos.png')?>" />
     <style>
     .card-dashboard {
@@ -55,7 +55,6 @@
                 <div class="container-fluid">
                     <div class="row">
                         <?php $this->load->view('setting/akun/akun_admin') ?>
-                        <?php $this->load->view('setting/akun/akun_kasir') ?>
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@
     <meta name="description"
         content="Xtreme is powerful and clean admin dashboard template, inpired from Google's Material Design" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>POS</title>
+<title>Absensi</title>
     <link rel="icon" type="image/png" href="<?php echo base_url('package/assets/images/logo-pos.png')?>" />
     <style>
     .scroll-table {
@@ -51,7 +51,7 @@
                         <div class="border-bottom title-part-padding">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h2 class="card-title mb-0">Daftar Detail Absens: <?php echo ChangeDateFormat('l, d F Y', $this->uri->segment(3)) ?></h4>
+                                    <h2 class="card-title mb-0">Detail Absensi : <?php echo ChangeDateFormat('l, d F Y', $this->uri->segment(3)) ?></h4>
                                 </div>
                                 <!-- <div>
                                     <a href="<?php echo base_url('absenss/pdf')?>"

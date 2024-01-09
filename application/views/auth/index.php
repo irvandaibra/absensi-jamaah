@@ -71,10 +71,10 @@
                         width="150px" /></span>
                 </div>
                 <h2 class="text-white mt-4 fw-light">
-                 <span class="font-medium">Further</span> Small Business Indonesia
+                 <span class="font-medium">Digital</span> Absensi
                 </h2>
                 <p class="op-5 text-white fs-4 mt-4">
-                 Membantu Usaha Kecil Masyarakat Supaya Lebih Maju Dan Terstrukur
+                  Membuat Absensi Terstrukur, Efisien, Dan Transparan
                 </p>
               </div>
             </div>
@@ -122,10 +122,10 @@
                 <div class="card-body">
                   <h2>Selamat Datang</h2>
                   <p class="text-muted fs-4">
-                    Belum Punya Akun?
-                    <a href="javascript:void(0)" id="to-register">Buat Akun Disini</a>
+                    Masukan Email Admin & Password Admin
+                    <!-- <a href="javascript:void(0)" id="to-register">Buat Akun Disini</a> -->
                   </p>
-                  <?php echo form_open('auth/login', 'class="form-horizontal mt-4 pt-4 needs-validation" novalidate'); ?>
+                  <?php echo form_open('auth/login', 'class="form-horizontal mt-2 pt-2 needs-validation" novalidate'); ?>
                     <div class="form-floating mb-3">
                       <?php echo form_input($email, '', 'class="form-control form-input-bg" id="tb-email" placeholder=" " required') ?>
                       <label for="tb-email">Email</label>

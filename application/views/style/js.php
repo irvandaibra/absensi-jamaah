@@ -18,14 +18,11 @@
 <script src="<?php echo base_url('package/dist/js/custom.min.js')?>"></script>
 <!-- Datatables JS -->
 <script src="<?php echo base_url('package/assets/Datatables/datatables.min.js')?>"></script>
-<script src="<?php echo base_url('package/assets/Datatables/Responsive-2.3.1/css/responsive.bootstrap5.min.js')?>">
-</script>
+<!-- <script src="<?php echo base_url('package/assets/Datatables/Responsive-2.3.1/css/responsive.bootstrap5.min.js')?>"></script> -->
 <!-- Datatables CSS -->
 <link href="<?php echo base_url('package/assets/Datatables/datatables.min.css')?>" rel="stylesheet">
 </link>
-<link href="<?php echo base_url('package/assets/Datatables/Responsive-2.3.1/css/responsive.bootstrap5.min.css')?>"
-    rel="stylesheet">
-</link>
+<!-- <link href="<?php echo base_url('package/assets/Datatables/Responsive-2.3.1/css/responsive.bootstrap5.min.css')?>" rel="stylesheet"></link> -->
 <script src="<?php echo base_url('package/ckeditor/ckeditor.js'); ?>"></script>
 
 <!-- Select2 -->
