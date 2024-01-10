@@ -24,6 +24,49 @@
         overflow-x: hidden;
         max-height: 450px;
     }
+
+    .highcharts-figure,
+    .highcharts-data-table table {
+        min-width: 360px;
+        max-width: 100%;
+        margin: 1em auto;
+    }
+
+    .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #ebebeb;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+    }
+
+    .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+    }
+
+    .highcharts-data-table td,
+    .highcharts-data-table th,
+    .highcharts-data-table caption {
+        padding: 0.5em;
+    }
+
+    .highcharts-data-table thead tr,
+    .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+    }
+
+    .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+    }
     </style>
 </head>
 
@@ -53,55 +96,261 @@
             <div class="page-wrapper" style="min-height: 100vh; background-color: #EFF5F5 ">
                 <div class="page-breadcrumb">
                     <div class="row">
-                        <div class="col-5 align-self-center">
-                            <h2 class="page-title">Dashboard</h2>
+                        <div class="col-sm-12 col-lg-8">
+                            <div class="card w-100">
+                                <div class="card-body border-bottom">
+                                    <h4 class="card-title">Overview</h4>
+                                    <h5 class="card-subtitle">Total Earnings of the Month</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mt-2">
+                                        <div class="col-sm-12 col-md-4 mb-3 mb-md-0">
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-2">
+                                                    <span class="text-orange display-5"><i
+                                                            class="ri-wallet-2-fill"></i></span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-muted">Net Profit</span>
+                                                    <h3 class="font-medium mb-0">$3,567.53</h3>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                        <div class="col-sm-12 col-md-4 mb-3 mb-md-0">
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-2">
+                                                    <span class="text-primary display-5"><i
+                                                            class="ri-shopping-basket-fill"></i></span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-muted">Product sold</span>
+                                                    <h3 class="font-medium mb-0">5489</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-4 mb-3 mb-md-0">
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-2">
+                                                    <span class="display-5"><i class="ri-account-box-fill"></i></span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-muted">New Customers</span>
+                                                    <h3 class="font-medium mb-0">$23,568.90</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <figure class="highcharts-figure">
+                                    <div id="container"></div>
+                                    <p class="highcharts-description">
+                                    </p>
+                                </figure>
+                            </div>
                         </div>
+                        <div class="col-sm-12 col-lg-4">
+                            <div>
+                                <div class="">
+                                    <div id="containerr"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="">
+                                    <div id="containerrr"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div style="width:75%;">
-                        <canvas id="myChart"></canvas>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
     <?php $this->load->view('style/js') ?>
 </body>
-
 <script type="text/javascript">
-var ctx = document.getElementById('myChart').getContext('2d');
-
-var data = <?php echo json_encode($chart_data); ?>;
-
-var labels = [];
-var values = [];
-
-data.forEach(function(item) {
-    labels.push(item.label);
-    values.push(item.value);
-});
-
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: labels,
-        datasets: [{
-            label: 'Chart Data',
-            data: values,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-        }]
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
     },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
+    title: {
+        text: 'Rekap Absensi',
+        align: 'left'
+    },
+
+    subtitle: {
+        text: '',
+        align: 'left'
+    },
+
+    yAxis: {
+        title: {
+            text: 'Angka Absens'
         }
+    },
+
+    xAxis: {
+        accessibility: {
+            rangeDescription: 'Range: 2010 to 2020'
+        }
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 2010
+        }
+    },
+
+    series: [{
+        name: 'Hadir',
+        data: [4393, 4865, 6516, 8182, 1121, 1423,
+            1715, 1651, 1557, 1614, 1546
+        ]
+    }, {
+        name: 'Ijin',
+        data: [2491, 3941, 2742, 2851, 1490, 1282,
+            1811, 1685, 1726, 1243, 1150
+        ]
+    }, {
+        name: 'Alpha',
+        data: [117, 300, 160, 197, 201, 277,
+            327, 302, 293, 293, 263
+        ]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
     }
+
+});
+Highcharts.chart('containerrr', {
+    chart: {
+        type: 'pie'
+    },
+    title: {
+        text: 'Status'
+    },
+    tooltip: {
+        valueSuffix: '%'
+    },
+    plotOptions: {
+        series: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: [{
+                enabled: true,
+                distance: 20
+            }, {
+                enabled: true,
+                distance: -40,
+                format: '{point.percentage:.1f}%',
+                style: {
+                    fontSize: '1.2em',
+                    textOutline: 'none',
+                    opacity: 0.7
+                },
+                filter: {
+                    operator: '>',
+                    property: 'percentage',
+                    value: 10
+                }
+            }]
+        }
+    },
+    series: [{
+        name: 'Percentage',
+        colorByPoint: true,
+        data: [{
+                name: 'Pribumi',
+                y: 58.4
+            },
+            {
+                name: 'Pendatang',
+
+                y: 52.6
+            },
+        ]
+    }]
+});
+Highcharts.chart('containerr', {
+    chart: {
+        type: 'pie'
+    },
+    title: {
+        text: 'Kategori Usia'
+    },
+    tooltip: {
+        valueSuffix: '%'
+    },
+    plotOptions: {
+        series: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: [{
+                enabled: true,
+                distance: 20
+            }, {
+                enabled: true,
+                distance: -40,
+                format: '{point.percentage:.1f}%',
+                style: {
+                    fontSize: '1.2em',
+                    textOutline: 'none',
+                    opacity: 0.7
+                },
+                filter: {
+                    operator: '>',
+                    property: 'percentage',
+                    value: 10
+                }
+            }]
+        }
+    },
+    series: [{
+        name: 'Percentage',
+        colorByPoint: true,
+        data: [{
+                name: 'Lansia',
+                y: 15.7
+            },
+            {
+                name: 'Umum',
+
+                y: 68.1
+            },
+            {
+                name: 'Remaja',
+
+                y: 16.2
+            }
+        ]
+    }]
 });
 </script>
 
