@@ -125,7 +125,7 @@
                                         <div class="col-12">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">Diagram Perbandingan</h4>
+                                                    <h4 class="card-title">Diagram</h4>
                                                 <div>
                                                 <div id="container"></div>
                                                 </div>
@@ -166,7 +166,7 @@
         }
     },
     tooltip: {
-        valueSuffix: ' (1000 MT)'
+        valueSuffix: ''
     },
     plotOptions: {
         column: {
