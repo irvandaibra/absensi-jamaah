@@ -95,37 +95,36 @@
             <?php $this->load->view('style/sidebar') ?>
             <div class="page-wrapper" style="min-height: 100vh; background-color: #EFF5F5 ">
                 <div class="page-breadcrumb">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-lg-8">
                             <div class="card w-100">
-                                <div class="card-body border-bottom">
-                                    <h4 class="card-title">Overview</h4>
-                                    <h5 class="card-subtitle">Total Earnings of the Month</h5>
+                                <div class="py-2 px-4 border-bottom">
+                                    <h3 class="">Dashboard</h3>
                                 </div>
                                 <div class="card-body">
-                                    <div class="row mt-2">
-                                        <div class="col-sm-12 col-md-4 mb-3 mb-md-0">
-                                            <div class="d-flex align-items-center">
-                                                <div class="me-2">
-                                                    <span class="text-orange display-5"><i
-                                                            class="ri-wallet-2-fill"></i></span>
-                                                </div>
-                                                <div>
-                                                    <span class="text-muted">Net Profit</span>
-                                                    <h3 class="font-medium mb-0">$3,567.53</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                    <div class="row">
                                         <div class="col-sm-12 col-md-4 mb-3 mb-md-0">
                                             <div class="d-flex align-items-center">
                                                 <div class="me-2">
                                                     <span class="text-primary display-5"><i
-                                                            class="ri-shopping-basket-fill"></i></span>
+                                                            class="ri-user-fill"></i></span>
                                                 </div>
                                                 <div>
-                                                    <span class="text-muted">Product sold</span>
-                                                    <h3 class="font-medium mb-0">5489</h3>
+                                                    <span class="text-muted">Total Jamaah</span>
+                                                    <h3 class="font-medium mb-0">97</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 mb-3 mb-md-0">
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-2">
+                                                    <span class="text-primary display-5"><i
+                                                            class="ri-todo-fill"></i></span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-muted">Data Absensi</span>
+                                                    <h3 class="font-medium mb-0">489</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -133,19 +132,19 @@
                                         <div class="col-sm-12 col-md-4 mb-3 mb-md-0">
                                             <div class="d-flex align-items-center">
                                                 <div class="me-2">
-                                                    <span class="display-5"><i class="ri-account-box-fill"></i></span>
+                                                    <span class="text-primary display-5"><i class="ri-calendar-fill"></i></span>
                                                 </div>
                                                 <div>
-                                                    <span class="text-muted">New Customers</span>
-                                                    <h3 class="font-medium mb-0">$23,568.90</h3>
+                                                    <span class="text-muted">Total Kegiatan</span>
+                                                    <h3 class="font-medium mb-0">6</h3>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="container-fluid">
-                                <figure class="highcharts-figure">
+                            <div class="">
+                                <figure class="">
                                     <div id="container"></div>
                                     <p class="highcharts-description">
                                     </p>
@@ -164,11 +163,9 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
-
+</div>
             </div>
         </div>
     </div>

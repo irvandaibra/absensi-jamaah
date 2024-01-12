@@ -152,71 +152,42 @@
         text: '',
         align: 'left'
     },
-
-    subtitle: {
-        text: '',
-        align: 'left'
-    },
-
-    yAxis: {
-        title: {
-            text: 'Angka Absens'
-        }
-    },
-
     xAxis: {
+        categories: [''],
+        crosshair: true,
         accessibility: {
-            rangeDescription: 'Range: 2010 to 2020'
+            description: 'Countries'
         }
     },
-
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Data Absensi'
+        }
     },
-
+    tooltip: {
+        valueSuffix: ' (1000 MT)'
+    },
     plotOptions: {
-        series: {
-            label: {
-                connectorAllowed: false
-            },
-            pointStart: 2010
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
         }
     },
-
-    series: [{
-        name: 'Hadir',
-        data: [4393, 4865, 6516, 8182, 1121, 1423,
-            1715, 1651, 1557, 1614, 1546
-        ]
-    }, {
-        name: 'Ijin',
-        data: [2491, 3941, 2742, 2851, 1490, 1282,
-            1811, 1685, 1726, 1243, 1150
-        ]
-    }, {
-        name: 'Alpha',
-        data: [117, 300, 160, 197, 201, 277,
-            327, 302, 293, 293, 263
-        ]
-    }],
-
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
-    }
-
+    series: [
+        {
+            name: 'Hadir',
+            data: [292]
+        },
+        {
+            name: 'Ijin',
+            data: [86]
+        },
+        {
+            name: 'Alpha',
+            data: [20]
+        }
+    ]
 });
 </script>
 
