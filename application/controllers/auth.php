@@ -14,12 +14,7 @@ class auth extends CI_Controller {
 	public function index()
 	{
 		if ($this->session->userdata('logged_in') === TRUE) {
-			if ($this->session->userdata('role') === 'Admin') {
-				redirect(base_url('dashboard'));
-			}
-			if ($this->session->userdata('role') === 'Pengabsen') {
-				redirect(base_url('dashboard'));
-			}
+			redirect(base_url('dashboard'));
 		}
 		$this->data['username'] = array(
 			'name'	=> 'username',
