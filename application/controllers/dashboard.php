@@ -22,6 +22,7 @@ class dashboard extends CI_Controller {
 		$data['total_absensi'] = $this->Main_model->get('absensi')->num_rows();
 		$data['total_daftar_kegiatan'] = $this->Main_model->get('daftar_kegiatan')->num_rows();
 
+	   // Kategori	
 		$lansia = $this->Main_model->getwhere('data_jamaah', ['kategori' => 'lansia'])->num_rows();
 		$percentage = ($lansia / $data['total_jamaah']) * 100;
 		$data['kategori_lansia'] = number_format((float)$percentage, 2, '.', '');
@@ -34,6 +35,14 @@ class dashboard extends CI_Controller {
 		$percentage = ($remaja / $data['total_jamaah']) * 100;
 		$data['kategori_remaja'] = number_format((float)$percentage, 2, '.', '');
 
+	   // Status
+		$pendatang = $this->Main_model->getwhere('data_jamaah', ['status' => 'pendatang'])->num_rows();
+		$percentage = ($pendatang / $data['total_jamaah']) * 100;
+		$data['status_pendatang'] = number_format((float)$percentage, 2, '.', '');
+		
+		$pribumi = $this->Main_model->getwhere('data_jamaah', ['status' => 'pribumi'])->num_rows();
+		$percentage = ($pribumi / $data['total_jamaah']) * 100;
+		$data['status_pribumi'] = number_format((float)$percentage, 2, '.', '');
 		$this->load->view('dashboard', $data);
 	}
 }

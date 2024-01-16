@@ -333,17 +333,15 @@ Highcharts.chart('containerr', {
         colorByPoint: true,
         data: [{
                 name: 'Lansia',
-                y: 15.7
+                y: <?php echo $kategori_lansia ?>
             },
             {
                 name: 'Umum',
-                
-                y: 68.1
+                y: <?php echo $kategori_umum ?>
             },
             {
                 name: 'Remaja',
-
-                y: 16.2
+                y: <?php echo $kategori_remaja ?>
             }
         ]
     }]
