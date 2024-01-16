@@ -112,7 +112,7 @@
                                                 </div>
                                                 <div>
                                                     <span class="text-muted">Total Jamaah</span>
-                                                    <h3 class="font-medium mb-0">97</h3>
+                                                    <h3 class="font-medium mb-0"><?php echo $total_jamaah; ?></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -124,7 +124,7 @@
                                                 </div>
                                                 <div>
                                                     <span class="text-muted">Data Absensi</span>
-                                                    <h3 class="font-medium mb-0">489</h3>
+                                                    <h3 class="font-medium mb-0"><?php echo $total_absensi; ?></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,7 +136,7 @@
                                                 </div>
                                                 <div>
                                                     <span class="text-muted">Total Kegiatan</span>
-                                                    <h3 class="font-medium mb-0">6</h3>
+                                                    <h3 class="font-medium mb-0"><?php echo $total_daftar_kegiatan; ?></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -338,7 +338,7 @@ Highcharts.chart('containerr', {
             },
             {
                 name: 'Umum',
-
+                
                 y: 68.1
             },
             {

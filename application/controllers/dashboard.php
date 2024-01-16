@@ -18,6 +18,9 @@ class dashboard extends CI_Controller {
 	public function index()
 	{
 		// $data['chart_data'] = $this->Main_model->getChartData();
-		$this->load->view('Dashboard');
+		$data['total_jamaah'] = $this->Main_model->get('data_jamaah')->num_rows();
+		$data['total_absensi'] = $this->Main_model->get('absensi')->num_rows();
+		$data['total_daftar_kegiatan'] = $this->Main_model->get('daftar_kegiatan')->num_rows();
+		$this->load->view('dashboard', $data);
 	}
 }
