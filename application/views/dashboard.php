@@ -172,180 +172,180 @@
     <?php $this->load->view('style/js') ?>
 </body>
 <script type="text/javascript">
-Highcharts.chart('container', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Rekap Absensi',
-        align: 'left'
-    },
-
-    subtitle: {
-        text: '',
-        align: 'left'
-    },
-
-    yAxis: {
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
         title: {
-            text: 'Angka Absens'
-        }
-    },
+            text: 'Rekap Absensi',
+            align: 'left'
+        },
 
-    xAxis: {
-        accessibility: {
-            rangeDescription: 'Range: 2010 to 2020'
-        }
-    },
+        subtitle: {
+            text: '',
+            align: 'left'
+        },
 
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
-
-    plotOptions: {
-        series: {
-            label: {
-                connectorAllowed: false
-            },
-            pointStart: 2010
-        }
-    },
-
-    series: [{
-        name: 'Hadir',
-        data: [4393, 4865, 6516, 8182, 1121, 1423,
-            1715, 1651, 1557, 1614, 1546
-        ]
-    }, {
-        name: 'Ijin',
-        data: [2491, 3941, 2742, 2851, 1490, 1282,
-            1811, 1685, 1726, 1243, 1150
-        ]
-    }, {
-        name: 'Alpha',
-        data: [117, 300, 160, 197, 201, 277,
-            327, 302, 293, 293, 263
-        ]
-    }],
-
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
+        yAxis: {
+            title: {
+                text: 'Angka Absens'
             }
+        },
+
+        xAxis: {
+            accessibility: {
+                rangeDescription: 'Range: 2010 to 2020'
+            }
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+                pointStart: 2010
+            }
+        },
+
+        series: [{
+            name: 'Hadir',
+            data: [4393, 4865, 6516, 8182, 1121, 1423,
+                1715, 1651, 1557, 1614, 1546
+            ]
+        }, {
+            name: 'Ijin',
+            data: [2491, 3941, 2742, 2851, 1490, 1282,
+                1811, 1685, 1726, 1243, 1150
+            ]
+        }, {
+            name: 'Alpha',
+            data: [117, 300, 160, 197, 201, 277,
+                327, 302, 293, 293, 263
+            ]
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+    Highcharts.chart('containerr', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Kategori Usia'
+        },
+        tooltip: {
+            valueSuffix: '%'
+        },
+        plotOptions: {
+            series: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: [{
+                    enabled: true,
+                    distance: 20
+                }, {
+                    enabled: true,
+                    distance: -40,
+                    format: '{point.percentage:.1f}%',
+                    style: {
+                        fontSize: '1.2em',
+                        textOutline: 'none',
+                        opacity: 0.7
+                    },
+                    filter: {
+                        operator: '>',
+                        property: 'percentage',
+                        value: 10
+                    }
+                }]
+            }
+        },
+        series: [{
+            name: 'Percentage',
+            colorByPoint: true,
+            data: [{
+                    name: 'Lansia',
+                    y: <?php echo $kategori_lansia ?>
+                },
+                {
+                    name: 'Umum',
+                    y: <?php echo $kategori_umum ?>
+                },
+                {
+                    name: 'Remaja',
+                    y: <?php echo $kategori_remaja ?>
+                }
+            ]
         }]
-    }
-
-});
-Highcharts.chart('containerrr', {
-    chart: {
-        type: 'pie'
-    },
-    title: {
-        text: 'Status'
-    },
-    tooltip: {
-        valueSuffix: '%'
-    },
-    plotOptions: {
-        series: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: [{
-                enabled: true,
-                distance: 20
-            }, {
-                enabled: true,
-                distance: -40,
-                format: '{point.percentage:.1f}%',
-                style: {
-                    fontSize: '1.2em',
-                    textOutline: 'none',
-                    opacity: 0.7
-                },
-                filter: {
-                    operator: '>',
-                    property: 'percentage',
-                    value: 10
-                }
-            }]
-        }
-    },
-    series: [{
-        name: 'Percentage',
-        colorByPoint: true,
-        data: [{
-                name: 'Pribumi',
-                y: <?php echo $status_pribumi ?>
-            },
-            {
-                name: 'Pendatang',
-                y: <?php echo $status_pendatang ?>
-            },
-        ]
-    }]
-});
-Highcharts.chart('containerr', {
-    chart: {
-        type: 'pie'
-    },
-    title: {
-        text: 'Kategori Usia'
-    },
-    tooltip: {
-        valueSuffix: '%'
-    },
-    plotOptions: {
-        series: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: [{
-                enabled: true,
-                distance: 20
-            }, {
-                enabled: true,
-                distance: -40,
-                format: '{point.percentage:.1f}%',
-                style: {
-                    fontSize: '1.2em',
-                    textOutline: 'none',
-                    opacity: 0.7
-                },
-                filter: {
-                    operator: '>',
-                    property: 'percentage',
-                    value: 10
-                }
-            }]
-        }
-    },
-    series: [{
-        name: 'Percentage',
-        colorByPoint: true,
-        data: [{
-                name: 'Lansia',
-                y: <?php echo $kategori_lansia ?>
-            },
-            {
-                name: 'Umum',
-                y: <?php echo $kategori_umum ?>
-            },
-            {
-                name: 'Remaja',
-                y: <?php echo $kategori_remaja ?>
+    });
+    Highcharts.chart('containerrr', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Status'
+        },
+        tooltip: {
+            valueSuffix: '%'
+        },
+        plotOptions: {
+            series: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: [{
+                    enabled: true,
+                    distance: 20
+                }, {
+                    enabled: true,
+                    distance: -40,
+                    format: '{point.percentage:.1f}%',
+                    style: {
+                        fontSize: '1.2em',
+                        textOutline: 'none',
+                        opacity: 0.7
+                    },
+                    filter: {
+                        operator: '>',
+                        property: 'percentage',
+                        value: 10
+                    }
+                }]
             }
-        ]
-    }]
-});
+        },
+        series: [{
+            name: 'Percentage',
+            colorByPoint: true,
+            data: [{
+                    name: 'Pribumi',
+                    y: <?php echo $status_pribumi ?>
+                },
+                {
+                    name: 'Pendatang',
+                    y: <?php echo $status_pendatang ?>
+                },
+            ]
+        }]
+    });
 </script>
 
 </html>
