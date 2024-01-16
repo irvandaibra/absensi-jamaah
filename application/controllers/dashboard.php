@@ -22,6 +22,12 @@ class dashboard extends CI_Controller {
 		$data['total_absensi'] = $this->Main_model->get('absensi')->num_rows();
 		$data['total_daftar_kegiatan'] = $this->Main_model->get('daftar_kegiatan')->num_rows();
 
+	   // Rekap Absensi
+	    $year = date('Y', strtotime($this->Main_model->get('absensi')->last_row()->tanggal_kegiatan));
+	    $data['rekap_hadir'] = $this->Main_model->getwhere('absensi', ['kehadiran' => 'Hadir', "YEAR(tanggal_kegiatan)" => $year])->num_rows();
+	    $data['rekap_ijin'] = $this->Main_model->getwhere('absensi', ['kehadiran' => 'Izin', "YEAR(tanggal_kegiatan)" => $year])->num_rows();
+	    $data['rekap_alpha'] = $this->Main_model->getwhere('absensi', ['kehadiran' => 'Alpha', "YEAR(tanggal_kegiatan)" => $year])->num_rows();
+
 	   // Kategori	
 		$lansia = $this->Main_model->getwhere('data_jamaah', ['kategori' => 'lansia'])->num_rows();
 		$percentage = ($lansia / $data['total_jamaah']) * 100;

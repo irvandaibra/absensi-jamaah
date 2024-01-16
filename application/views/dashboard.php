@@ -194,7 +194,7 @@
 
         xAxis: {
             accessibility: {
-                rangeDescription: 'Range: 2010 to 2020'
+                rangeDescription: 'Range is a year, current year is: <?php echo date('Y') ?>'
             }
         },
 
@@ -209,25 +209,19 @@
                 label: {
                     connectorAllowed: false
                 },
-                pointStart: 2010
+                pointStart: <?php echo date('Y') ?>
             }
         },
 
         series: [{
             name: 'Hadir',
-            data: [4393, 4865, 6516, 8182, 1121, 1423,
-                1715, 1651, 1557, 1614, 1546
-            ]
+            data: [<?php echo $rekap_hadir ?>]
         }, {
             name: 'Ijin',
-            data: [2491, 3941, 2742, 2851, 1490, 1282,
-                1811, 1685, 1726, 1243, 1150
-            ]
+            data: [<?php echo $rekap_ijin ?>]
         }, {
             name: 'Alpha',
-            data: [117, 300, 160, 197, 201, 277,
-                327, 302, 293, 293, 263
-            ]
+            data: [<?php echo $rekap_alpha ?>]
         }],
 
         responsive: {
