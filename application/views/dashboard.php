@@ -285,12 +285,11 @@ Highcharts.chart('containerrr', {
         colorByPoint: true,
         data: [{
                 name: 'Pribumi',
-                y: 58.4
+                y: <?php echo $status_pribumi ?>
             },
             {
                 name: 'Pendatang',
-
-                y: 52.6
+                y: <?php echo $status_pendatang ?>
             },
         ]
     }]
