@@ -59,7 +59,7 @@
                                                     <div class="col-12 d-flex align-items-center ">
                                                         <div>
                                                             <h4 class="mb-0">Tanggal Terakhir Hadir</h4>
-                                                            <h5 class="mb-0">21 Nov 2023</h5>
+                                                            <h5 class="mb-0"><?php if($absensi_attending !== null) {echo $absensi_attending->tanggal_kegiatan;} else {echo '-';} ?></h5>
                                                         </div>
                                                     </div>
 
@@ -76,7 +76,7 @@
                                                     <div class="col-12 d-flex align-items-center ">
                                                         <div>
                                                             <h4 class="mb-0">Tanggal Terakhir Ijin</h4>
-                                                            <h5 class="mb-0">14 Nov 2023</h5>
+                                                            <h5 class="mb-0"><?php if($absensi_permiss !== null) {echo $absensi_permiss->tanggal_kegiatan;} else {echo '-';} ?></h5>
                                                         </div>
                                                     </div>
 
@@ -93,7 +93,7 @@
                                                     <div class="col-12 d-flex align-items-center ">
                                                         <div>
                                                             <h4 class="mb-0">Tanggal Terakhir Alpha</h4>
-                                                            <h5 class="mb-0">17 Nov 2023</h5>
+                                                            <h5 class="mb-0"><?php if($absensi_attend !== null) {echo $absensi_attend->tanggal_kegiatan;} else {echo '-';} ?></h5>
                                                         </div>
                                                     </div>
 
