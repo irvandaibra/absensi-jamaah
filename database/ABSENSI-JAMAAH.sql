@@ -32,7 +32,7 @@ CREATE TABLE `absensi` (
   `dibuat_pada` timestamp NOT NULL DEFAULT current_timestamp(),
   `diubah_pada` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `absensi` */
 
@@ -44,7 +44,11 @@ insert  into `absensi`(`id`,`jamaah_id`,`kegiatan_id`,`kehadiran`,`keterangan`,`
 (5,1,2,'Alpha',NULL,'Irvan','2023-12-10',0,'2023-12-10 15:23:39','2023-12-14 11:09:32'),
 (6,2,2,'Alpha',NULL,'Irvan','2023-12-10',0,'2023-12-10 15:23:39','2023-12-14 11:09:33'),
 (7,3,2,'Alpha',NULL,'Irvan','2023-12-10',0,'2023-12-10 15:23:39','2023-12-14 11:09:34'),
-(8,4,2,'Alpha',NULL,'Irvan','2023-12-10',0,'2023-12-10 15:23:39','2023-12-14 11:09:36');
+(8,4,2,'Alpha',NULL,'Irvan','2023-12-10',0,'2023-12-10 15:23:39','2023-12-14 11:09:36'),
+(9,1,2,'Alpha',NULL,'Irvan','2024-01-17',0,'2024-01-17 00:27:56','2024-01-17 00:30:04'),
+(10,2,2,'Izin',NULL,'Irvan','2024-01-17',0,'2024-01-17 00:27:56','2024-01-17 01:01:08'),
+(11,3,2,'Hadir',NULL,'Irvan','2024-01-17',0,'2024-01-17 00:27:56','2024-01-17 01:01:04'),
+(12,4,2,'Hadir',NULL,'Irvan','2024-01-17',0,'2024-01-17 00:27:56','2024-01-17 01:01:00');
 
 /*Table structure for table `akun` */
 
