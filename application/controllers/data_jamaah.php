@@ -128,13 +128,9 @@ class data_jamaah extends CI_Controller {
     {
         $data['page'] = 'Detail';
 		$where = ['id' => $id];
-		$row   = $this->Main_model->getwhere('data_jamaah', $where)->row_array();
-        $tanggal_lahir = $row["tgl_lahir"];
-        $tanggal_ditampilkan = date("d F Y", strtotime($tanggal_lahir));
-        $row["tgl_lahir_tampil"] = $tanggal_ditampilkan;
-
-        $data['where'] = $where;
-        $data['row'] = $row;
+		$data['row']   = $this->Main_model->getwhere('data_jamaah', $where)->row_array();
+        
+        $data["row"]["tgl_lahir_tampil"] = date("d F Y", strtotime($data['row']["tgl_lahir"]));
 
         $this->load->view('data_jamaah/detail_data', $data);
     }
