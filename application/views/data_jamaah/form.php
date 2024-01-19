@@ -11,7 +11,7 @@
     <meta name="description"
         content="Xtreme is powerful and clean admin dashboard template, inpired from Google's Material Design" />
     <meta name="robots" content="noindex,nofollow" />
-<title>Absensi</title>
+    <title>Absensi</title>
     <link rel="icon" type="image/png" href="<?php echo base_url('package/assets/images/logo-pos.png')?>" />
     <style>
     .scroll-table {
@@ -116,14 +116,20 @@
                         </div>
                     </div>
                     <?php if($page === 'Ubah') { ?>
+                    <?php if($row['status_data'] == 1) { ?>
                     <button class="btn btn-danger float-start mx-2" type="button"
                         onClick="location.href='<?php echo base_url('data_jamaah/nonaktif/'.$row['id'])?>'">
                         Nonaktifkan
                     </button>
+                    <?php } else { ?>
+                    <?php } ?>
+                    <?php if($row['status_data'] == 0) { ?>
                     <button class="btn btn-info float-start mx-2" type="button"
                         onClick="location.href='<?php echo base_url('data_jamaah/aktif/'.$row['id'])?>'">
                         Aktifkan
                     </button>
+                    <?php } else { ?>
+                    <?php } ?>
                     <?php } else { ?>
                     <?php } ?>
                     <button type="submit" class="btn btn-primary float-end mx-2"><?php echo $page ?></button>

@@ -11,7 +11,7 @@
     <meta name="description"
         content="Xtreme is powerful and clean admin dashboard template, inpired from Google's Material Design" />
     <meta name="robots" content="noindex,nofollow" />
-<title>Absensi</title>
+    <title>Absensi</title>
     <link rel="icon" type="image/png" href="<?php echo base_url('package/assets/images/logo-pos.png')?>" />
     <style>
     .scroll-table {
@@ -51,23 +51,17 @@
                         <div class="border-bottom title-part-padding">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h2 class="card-title mb-0">Detail Absensi : <?php echo ChangeDateFormat('l, d F Y', $this->uri->segment(3)) ?></h4>
+                                    <h2 class="card-title mb-0">Detail Absensi :
+                                        <?php echo ChangeDateFormat('l, d F Y', $this->uri->segment(3)) ?></h4>
                                 </div>
-                                <!-- <div>
-                                    <a href="<?php echo base_url('absenss/pdf')?>"
-                                        class="btn btn-primary w-100">
-                                        Download PDF
-                                    </a>
-                                </div> -->
                                 <div>
-                                    <a href="<?php echo base_url('absenss/print')?>"
-                                        class="btn btn-primary w-100 blank" target="_blank">
+                                    <button onclick="printPage()" class="btn btn-primary w-100 blank" target="_blank">
                                         Donwload / Print PDF
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
-                            <div  class="mt-4">
-                                <h3>Kegiatan : <?php echo $data ?></h3>
+                            <div class="mt-4">
+                                <h3>Kegiatan : <?php echo $data?></h3>
                             </div>
                         </div>
                     </div>
@@ -87,11 +81,107 @@
                             </table>
                         </div>
                     </div>
+                    <div id="contentToPrint" style="display:none;">
+                        <div>
+                            <div>
+                                <center>
+                                    <div class="">
+                                        <h2>Laporan Absensi</h2>
+                                        <h4>Kelompok Taman Lele</h4>
+                                    </div>
+                                    <hr />
+                                </center>
+                            </div>
+                            <table class="w-100">
+                                <tr>
+                                    <th>
+                                        <div style="text-align: left">
+                                            Kegiatan : <?php echo $data?>
+                                            <br />
+                                            <br />
+                                            Tanggal : <?php echo ChangeDateFormat('l, d F Y', $this->uri->segment(3)) ?>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div style="text-align: center">
+                                            Hadir
+                                            <br />
+                                            <h3 style="text-align: right">82 %</h3>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div style="text-align: center">
+                                            Ijin
+                                            <br />
+                                            <h3 style="text-align: right">82 %</h3>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div style="text-align: center">
+                                            Alpha
+                                            <br />
+                                            <h3 style="text-align: right">82 %</h3>
+                                        </div>
+                                    </th>
+
+                                </tr>
+                            </table>
+                            <div class="mt-5">
+                                <table class=" table-hover table-white w-100">
+                                        <tr>
+                                            <th class="">No</th>
+                                            <th class="">Nama Jamaah</th>
+                                            <th class="">Kehadiran</th>
+                                            <th>keterangan</th>
+                                        </tr>
+                                </table>
+                            </div>
+
+                            <div>
+                                <table class="table-white w-100">
+                                    <tr>
+                                        <th style="width: 33%">
+                                        </th>
+                                        <th style="width: 33%">
+                                        </th>
+                                        <th style="width: 33%">
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center">
+                                            Mengetahui
+                                            <br />
+                                            Penerobos
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            (nama)
+                                        </td>
+                                        <td style="text-align: center">
+                                          
+                                        </td>
+                                        <td style="text-align: center">
+                                            Mengetahui
+                                            <br />
+                                            Kyai Kelompok
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            (nama)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <?php $this->load->view('style/js') ?>
+        <?php $this->load->view('style/js') ?>
 </body>
 <script>
 $(document).ready(function() {
@@ -100,7 +190,9 @@ $(document).ready(function() {
         responsive: true,
         serverSide: true,
         ordering: true,
-        order: [[0, 'asc']],
+        order: [
+            [0, 'asc']
+        ],
         ajax: {
             "url": "<?= base_url('absenss/get_detail_data/').$this->uri->segment(3)?>",
             "type": "POST"
@@ -110,8 +202,9 @@ $(document).ready(function() {
             [5, 10, 50],
             [5, 10, 50]
         ],
-        columns: [
-            {data: "id"},
+        columns: [{
+                data: "id"
+            },
             {
                 data: "nama",
             },
@@ -125,16 +218,30 @@ $(document).ready(function() {
                 }
             },
         ],
-        columnDefs: [
-            {
-                targets: 0,
-                render: function (data, type, row, meta) {
-                    return meta.row+1;
-                }
-            },
-        ]
+        columnDefs: [{
+            targets: 0,
+            render: function(data, type, row, meta) {
+                return meta.row + 1;
+            }
+        }, ]
     });
 });
+
+function printPage() {
+    var contentToPrint = document.getElementById('contentToPrint').innerHTML;
+    var originalContent = document.body.innerHTML;
+
+    // Ganti konten halaman dengan konten yang akan dicetak
+    document.body.innerHTML = contentToPrint;
+
+    // Panggil fungsi cetak
+    window.print();
+
+    // Kembalikan konten halaman ke konten asli
+    document.body.innerHTML = originalContent;
+}
+
+
 </script>
 
 </html>

@@ -50,7 +50,7 @@
                 <div class="page-breadcrumb">
                     <div class="row">
                         <div class="col-6 align-self-center">
-                            <h2 class="page-title"><?php echo $page?>Tambah Data Kegiatan</h2>
+                            <h2 class="page-title"><?php echo $page?> Data Kegiatan</h2>
                         </div>
                     </div>
                     <?php if($page === 'Tambah') { ?>
@@ -73,14 +73,20 @@
                         </div>
                     </div>
                     <?php if($page === 'Ubah') { ?>
-                    <button class="btn btn-danger float-start" type="button"
-                        onClick="location.href='<?php echo base_url('daftar_kegiatan/nonaktif/'.$row['id'])?>'">
+                    <?php if($row['status_kegiatan'] == 1) { ?>
+                    <button class="btn btn-danger float-start mx-2" type="button"
+                        onClick="location.href='<?php echo base_url('data_jamaah/nonaktif/'.$row['id'])?>'">
                         Nonaktifkan
                     </button>
-                    <button class="btn btn-info float-start" type="button"
-                        onClick="location.href='<?php echo base_url('daftar_kegiatan/aktif/'.$row['id'])?>'">
+                    <?php } else { ?>
+                    <?php } ?>
+                    <?php if($row['status_kegiatan'] == 0) { ?>
+                    <button class="btn btn-info float-start mx-2" type="button"
+                        onClick="location.href='<?php echo base_url('data_jamaah/aktif/'.$row['id'])?>'">
                         Aktifkan
                     </button>
+                    <?php } else { ?>
+                    <?php } ?>
                     <?php } else { ?>
                     <?php } ?>
                     <button type="submit" class="btn btn-primary float-end mx-1"><?php echo $page ?></button>

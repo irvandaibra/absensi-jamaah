@@ -40,7 +40,7 @@ class absenss extends CI_Controller {
 
 	public function input_absensi() {
 
-		$daftar_kegiatan = $this->Main_model->get('daftar_kegiatan')->result();
+		$daftar_kegiatan = $this->Main_model->getwhere('daftar_kegiatan', ['status_kegiatan' => 1])->result();
 
 		$options = array();
 		foreach ($daftar_kegiatan as $kegiatan) {
@@ -65,13 +65,13 @@ class absenss extends CI_Controller {
 		$sheet->setCellValue('E1', 'Alpha');
 		// $sheet->setCellValue('E1', 'Keterangan');
 
-    $data['data'] = $this->Main_model->get('data_jamaah')->result(); 
+    $data['data'] = $this->Main_model->getwhere('data_jamaah', ['status_data' => 1])->result(); 
     $jamaahData = $data['data'];
 
     $rowNum = 2;
-
-    foreach ($jamaahData as $jamaah) {
-        $sheet->setCellValue('A' . $rowNum, $jamaah->id);
+	
+    foreach ($jamaahData as $index => $jamaah) {
+        $sheet->setCellValue('A' . $rowNum, $index + 1);
         $sheet->setCellValue('B' . $rowNum, $jamaah->nama_lengkap);
         $sheet->setCellValue('C' . $rowNum, ''); // Replace with actual hadir status
         $sheet->setCellValue('D' . $rowNum, ''); // Replace with actual ijin status
@@ -177,9 +177,15 @@ class absenss extends CI_Controller {
         echo $this->Main_model->get_tables_query($query,$search,$where,$isWhere);
     }
 
-	public function print() {
-		$data['abesens'] = $this->Main_model->get('daftar_absens')->result();
-		$this->load->view('laporan_data', $data);
+	public function print($tgl) {
+		$absen = $this->Main_model->getwhere('absensi', ['tanggal_kegiatan' => $tgl])->row()->kegiatan_id;
+		if (empty($absen)) {
+			redirect('absenss');
+		} else {
+			$data['data'] = Kegiatan_ByAbsensi($absen, "nama_kegiatan");
+			$data['tgl'] = $tgl;
+			$this->load->view('laporan_data', $data);
+		}
 	}
 
 }

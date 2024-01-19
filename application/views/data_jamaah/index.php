@@ -79,6 +79,7 @@
                                     <tr>
                                         <th class="">Nama Lengkap</th>
                                         <th class="">Kategori</th>
+                                        <th class="">Status Domisili</th>
                                         <th class="">Status</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -123,6 +124,16 @@ $(document).ready(function() {
             },
             {
                 data: "status",
+            },
+            {
+                data: "status_data",
+                "render": function(data, type, row, meta) {
+                    if (data == 1) {
+                        return "<a class=>Aktif</a>";
+                    } else {
+                        return "Tidak Aktif";
+                    }
+                }
             },
             {
                 data: "id",

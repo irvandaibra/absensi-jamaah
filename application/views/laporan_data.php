@@ -55,7 +55,7 @@
             </tr>
         </table>
         <div class="mt-5">
-            <table class=" table-hover table-white w-100 ">
+            <table class="tablee table-hover table-white w-100 ">
                 <thead>
                     <tr>
                         <th class="">No</th>
@@ -64,8 +64,6 @@
                         <th>keterangan</th>
                     </tr>
                 </thead>
-                <tbody>
-                </tbody>
             </table>
         </div>
         <div>
@@ -82,7 +80,7 @@
                     <td style="text-align: center">
                         Mengetahui
                         <br />
-                        pengurus
+                        penerobos
                         <br />
                         <br />
                         <br />
@@ -91,15 +89,7 @@
                         (nama)
                     </td>
                     <td style="text-align: center">
-                        Mengetahui
-                        <br />
-                        penerobos
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        (nama)
+                       
                     </td>
                     <td style="text-align: center">
                         Mengetahui
@@ -122,46 +112,7 @@
 window.print();
 </script>
 <script>
-$(document).ready(function() {
-    $('.table').DataTable({
-        processing: true,
-        responsive: true,
-        serverSide: true,
-        ordering: true,
-        order: [
-            [0, 'asc']
-        ],
-        ajax: {
-            "url": "<?= base_url('absenss/get_detail_data/')?>",
-            "type": "POST"
-        },
-        deferRender: true,
-        aLengthMenu: [
-            [5, 10, 50],
-            [5, 10, 50]
-        ],
-        columns: [{
-                data: "id"
-            },
-            {
-                data: "nama",
-            },
-            {
-                data: "kehadiran",
-            },
-            {
-                data: "",
-            },
-           
-        ],
-        columnDefs: [{
-            targets: 0,
-            render: function(row) {
-                return row;
-            }
-        }, ]
-    });
-});
+
 </script>
 
 </html>
