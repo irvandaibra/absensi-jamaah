@@ -95,6 +95,21 @@ class data_masjid extends CI_Controller {
                     'type'  => 'text',
                     'value' => $this->form_validation->set_value('nama_masjid', $row['nama_masjid']),
                 );
+                $data['kyai_kelompok'] = array(
+                    'name'  => 'kyai_kelompok',
+                    'type'  => 'text',
+                    'value' => $this->form_validation->set_value('kyai_kelompok', $row['kyai_kelompok']),
+                );
+                $data['penrobos'] = array(
+                    'name'  => 'penrobos',
+                    'type'  => 'text',
+                    'value' => $this->form_validation->set_value('penrobos', $row['penrobos']),
+                );
+                $data['alamat_masjid'] = array(
+                    'name'  => 'alamat_masjid',
+                    'type'  => 'text',
+                    'value' => $this->form_validation->set_value('alamat_masjid', $row['alamat_masjid']),
+                );
                 
 				$this->load->view('data_masjid/form', $data);
 			} else {

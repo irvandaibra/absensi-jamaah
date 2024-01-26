@@ -75,18 +75,22 @@
                     <?php if($page === 'Ubah') { ?>
                     <?php if($row['status_kegiatan'] == 1) { ?>
                     <button class="btn btn-danger float-start mx-2" type="button"
-                        onClick="location.href='<?php echo base_url('data_jamaah/nonaktif/'.$row['id'])?>'">
+                        onClick="location.href='<?php echo base_url('daftar_kegiatan/nonaktif/'.$row['id'])?>'">
                         Nonaktifkan
                     </button>
                     <?php } else { ?>
                     <?php } ?>
                     <?php if($row['status_kegiatan'] == 0) { ?>
                     <button class="btn btn-info float-start mx-2" type="button"
-                        onClick="location.href='<?php echo base_url('data_jamaah/aktif/'.$row['id'])?>'">
+                        onClick="location.href='<?php echo base_url('daftar_kegiatan/aktif/'.$row['id'])?>'">
                         Aktifkan
                     </button>
                     <?php } else { ?>
                     <?php } ?>
+                    <button class="btn btn-secondary float-start mx-2" type="button"
+                        onClick="location.href='<?php echo base_url('daftar_kegiatan//'.$row['id'])?>'">
+                        Hapus
+                    </button>
                     <?php } else { ?>
                     <?php } ?>
                     <button type="submit" class="btn btn-primary float-end mx-1"><?php echo $page ?></button>

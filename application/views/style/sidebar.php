@@ -55,7 +55,7 @@
                             Akun</span></a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a href="<?php echo base_url('akun')?>" class="sidebar-link"><i data-feather="disc"
+                            <a href="<?php echo base_url('akun/akun_admin')?>" class="sidebar-link"><i data-feather="disc"
                                     class="mdi mdi-view-quit"></i><span class="hide-menu"> Akun
                                 </span></a>
                         </li>

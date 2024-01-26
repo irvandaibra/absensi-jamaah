@@ -55,9 +55,15 @@
                                         <?php echo ChangeDateFormat('l, d F Y', $this->uri->segment(3)) ?></h4>
                                 </div>
                                 <div>
-                                    <button onclick="printPage()" class="btn btn-primary w-100 blank" target="_blank">
+                                    <div class="d-flex justify-content-between w-100">
+                                        <button onclick="history.go(-1)" class="btn btn-secondary w-100 ">
+                                        Kembali
+                                    </button>
+                                        <button onclick="printPage()" class="btn btn-primary w-100 blank mx-3" target="_blank">
                                         Donwload / Print PDF
                                     </button>
+                                    </div>
+                                    
                                 </div>
                             </div>
                             <div class="mt-4">

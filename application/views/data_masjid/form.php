@@ -81,13 +81,23 @@
                         </div>
                     </div>
                     <?php if($page === 'Ubah') { ?>
-                        <button class="btn btn-danger float-start" type="button"
+                    <?php if($row['status'] == 1) { ?>
+                    <button class="btn btn-danger float-start mx-2" type="button"
                         onClick="location.href='<?php echo base_url('data_masjid/nonaktif/'.$row['id'])?>'">
                         Nonaktifkan
                     </button>
-                    <button class="btn btn-info float-start" type="button"
+                    <?php } else { ?>
+                    <?php } ?>
+                    <?php if($row['status'] == 0) { ?>
+                    <button class="btn btn-info float-start mx-2" type="button"
                         onClick="location.href='<?php echo base_url('data_masjid/aktif/'.$row['id'])?>'">
                         Aktifkan
+                    </button>
+                    <?php } else { ?>
+                    <?php } ?>
+                    <button class="btn btn-secondary float-start mx-2" type="button"
+                        onClick="location.href='<?php echo base_url('data_masjid/'.$row['id'])?>'">
+                        Hapus
                     </button>
                     <?php } else { ?>
                     <?php } ?>
