@@ -20,6 +20,39 @@
         max-height: 450px;
     }
     </style>
+    <style>
+    .tablee {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .thh,
+    .tdd {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    @media only screen and (max-width: 600px) {
+        table {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            border: none;
+            border-bottom: 1px solid #ddd;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        th {
+            text-align: left;
+        }
+    }
+    </style>
 </head>
 
 <body>
@@ -57,13 +90,14 @@
                                 <div>
                                     <div class="d-flex justify-content-between w-100">
                                         <button onclick="history.go(-1)" class="btn btn-secondary w-100 ">
-                                        Kembali
-                                    </button>
-                                        <button onclick="printPage()" class="btn btn-primary w-100 blank mx-3" target="_blank">
-                                        Donwload / Print PDF
-                                    </button>
+                                            Kembali
+                                        </button>
+                                        <button onclick="printPage()" class="btn btn-primary w-100 blank mx-3"
+                                            target="_blank">
+                                            Donwload / Print PDF
+                                        </button>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="mt-4">
@@ -133,13 +167,22 @@
                                 </tr>
                             </table>
                             <div class="mt-5">
-                                <table class=" table-hover table-white w-100">
+                                <table class=tablee>
+                                    <thead>
                                         <tr>
-                                            <th class="">No</th>
-                                            <th class="">Nama Jamaah</th>
-                                            <th class="">Kehadiran</th>
-                                            <th>keterangan</th>
+                                            <th class=thh>No</th>
+                                            <th class=thh>Email</th>
+                                            <th class=thh>Kehadiran</th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class=tdd>1</td>
+                                            <td class=tdd>Irvan</td>
+                                            <td class=tdd>Hadir</td>
+                                        </tr>
+                                      
+                                    </tbody>
                                 </table>
                             </div>
 
@@ -166,7 +209,7 @@
                                             (nama)
                                         </td>
                                         <td style="text-align: center">
-                                          
+
                                         </td>
                                         <td style="text-align: center">
                                             Mengetahui
@@ -246,8 +289,6 @@ function printPage() {
     // Kembalikan konten halaman ke konten asli
     document.body.innerHTML = originalContent;
 }
-
-
 </script>
 
 </html>

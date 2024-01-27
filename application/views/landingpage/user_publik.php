@@ -7,6 +7,7 @@
     <title>Absenss</title>
 
     <?php $this->load->view('style/head') ?>
+    <link rel="icon" type="image/png" href="<?php echo base_url('package/assets/images/logo-pos.png')?>" />
 </head>
 
 <body class="bg-[#fff]">

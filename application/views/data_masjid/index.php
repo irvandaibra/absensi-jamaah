@@ -54,12 +54,11 @@
                                 <div>
                                     <h2 class="card-title mb-0">Data Masjid</h4>
                                 </div>
-                                <div>
+                                <!-- <div>
                                      <a href="<?php echo base_url('data_masjid/tambah')?>" class="btn btn-primary w-100">
                                         Tambah Data
                                     </a>
-                                </div>
-                                   
+                                </div> -->
                             </div>
                         </div>
                         <div class="card-body">
@@ -127,6 +126,13 @@ $(document).ready(function() {
             },
             {
                 data: "status",
+                "render": function(data, type, row, meta) {
+                    if (data == 1) {
+                        return "<a class=>Aktif</a>";
+                    } else {
+                        return "Tidak Aktif";
+                    }
+                }
             },
             {
                 data: "id",
