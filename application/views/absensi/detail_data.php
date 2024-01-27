@@ -89,9 +89,6 @@
                                 </div>
                                 <div>
                                     <div class="d-flex justify-content-between w-100">
-                                        <button onclick="history.go(-1)" class="btn btn-secondary w-100 ">
-                                            Kembali
-                                        </button>
                                         <button onclick="printPage()" class="btn btn-primary w-100 blank mx-3"
                                             target="_blank">
                                             Donwload / Print PDF

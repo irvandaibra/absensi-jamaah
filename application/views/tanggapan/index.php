@@ -70,7 +70,7 @@
                                         <tr>
                                             <th class="">User</th>
                                             <th class="">Saran</th>
-                                            <th>Status</th>
+                                            <th>Status/Tanggapan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -114,6 +114,13 @@ $(document).ready(function() {
             },
             {
                 data: "tanggapan",
+                "render": function(data, type, row, meta) {
+                    if (data == null) {
+                        return "belum di tanggapi";
+                    } else {
+                        return data;
+                    }
+                }
             },
             {
                 data: "id",
