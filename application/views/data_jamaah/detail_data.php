@@ -177,15 +177,15 @@
     series: [
         {
             name: 'Hadir',
-            data: [292]
+            data: [<?php echo $rekap_hadir ?>]
         },
         {
             name: 'Ijin',
-            data: [86]
+            data: [<?php echo $rekap_ijin ?>]
         },
         {
             name: 'Alpha',
-            data: [20]
+            data: [<?php echo $rekap_alpha ?>]
         }
     ]
 });

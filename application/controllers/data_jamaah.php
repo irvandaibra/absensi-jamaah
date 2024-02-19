@@ -140,6 +140,17 @@ class data_jamaah extends CI_Controller {
 		$data['absensi_attend'] = $this->Main_model->getwhere('absensi', $whereattend)->last_row();
         
         $data["row"]["tgl_lahir_tampil"] = date("d F Y", strtotime($data['row']["tgl_lahir"]));
+        
+	    $year = date('Y');
+	    $data['rekap_hadir'] = $this->Main_model->getwhere('absensi', 
+            ['jamaah_id' => $id, 'kehadiran' => 'Hadir', "YEAR(tanggal_kegiatan)" => $year]
+        )->num_rows();
+	    $data['rekap_ijin'] = $this->Main_model->getwhere('absensi', 
+            ['jamaah_id' => $id, 'kehadiran' => 'Izin', "YEAR(tanggal_kegiatan)" => $year]
+        )->num_rows();
+	    $data['rekap_alpha'] = $this->Main_model->getwhere('absensi', 
+            ['jamaah_id' => $id, 'kehadiran' => 'Alpha', "YEAR(tanggal_kegiatan)" => $year]
+        )->num_rows();
 
         $this->load->view('data_jamaah/detail_data', $data);
     }
