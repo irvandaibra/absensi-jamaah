@@ -18,7 +18,7 @@ if (!defined('BASEPATH')) {
         $smth = '';
         $result = $ci->db->select('*')
                         ->from('absensi')
-                        ->join('daftar_kegiatan', 'absensi.kegiatan_id = absensi.id')
+                        ->join('daftar_kegiatan', 'absensi.kegiatan_id = daftar_kegiatan.id')
                         ->where('absensi.id',$id)
                         ->get();
         $c = $result->row();
